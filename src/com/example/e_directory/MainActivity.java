@@ -1,8 +1,17 @@
 package com.example.e_directory;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
+import java.io.InputStream;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,11 +20,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -72,7 +80,9 @@ public class MainActivity extends Activity implements OnClickListener {
 			locationListener = new MyLocationListener();
 
 			locationMangaer.requestLocationUpdates(
-					LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
+					LocationManager.NETWORK_PROVIDER,
+					//LocationManager.GPS_PROVIDER,
+					5000, 10, locationListener);
 
 		} else {
 			alertbox("Gps Status!!", "Your GPS is: OFF");
@@ -121,12 +131,111 @@ public class MainActivity extends Activity implements OnClickListener {
 		alert.show();
 	}
 
+	public static JSONObject getLocationInfo(Location loc) {
+	    StringBuilder stringBuilder = new StringBuilder();
+	    try {
+
+	    //address = address.replaceAll(" ","%20");    
+
+	    HttpPost httppost = new HttpPost("http://maps.google.com/maps/api/geocode/json?latlng=" + loc.getLatitude() 
+	    		+ "," + loc.getLongitude()+ "&components=locality&sensor=false");
+	    HttpClient client = new DefaultHttpClient();
+	    HttpResponse response;
+	    stringBuilder = new StringBuilder();
+
+
+	        response = client.execute(httppost);
+	        HttpEntity entity = response.getEntity();
+	        InputStream stream = entity.getContent();
+	        int b;
+	        while ((b = stream.read()) != -1) {
+	            stringBuilder.append((char) b);
+	        }
+	    } catch (ClientProtocolException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+	    } catch (IOException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+	    }
+
+	    JSONObject jsonObject = new JSONObject();
+	    try {
+	        jsonObject = new JSONObject(stringBuilder.toString());
+	    } catch (JSONException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+	    }
+
+	    return jsonObject;
+	}
+	
+	private class LocationTask extends AsyncTask<Location, Void, Void> {
+		String cityName = "";
+		String longitude, latitude;
+		@Override
+		protected Void doInBackground(Location... locs) {
+			// TODO Auto-generated method stub
+			
+			longitude = String.valueOf(locs[0].getLongitude());
+			latitude = String.valueOf(locs[0].getLatitude());
+			
+			//cityName = String.valueOf(getLocationInfo(locs[0]));
+			
+			//TODO: parse JSON to show 
+			
+			JSONObject jsonRes = getLocationInfo(locs[0]);
+			
+			try {
+				
+				JSONArray addresses = ((JSONObject)jsonRes.getJSONArray("results").get(0)).getJSONArray("address_components");
+				for(int i = 0; i < addresses.length(); i++){
+					JSONObject obj = (JSONObject) addresses.get(i);//new JSONObject(addresses.get(i));
+					
+					JSONArray components = obj.getJSONArray("types");
+					
+					
+					for(int j = 0; j < components.length(); j++) {
+						if(components.get(j).toString().equals("locality")){
+							
+						}
+					}
+					
+					
+					
+				}
+				
+				
+				
+				
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(Void result) {
+			// TODO Auto-generated method stub
+			
+			String s = longitude + "\n" + latitude
+					+ "\n\nMy Currrent City is: " + cityName;
+			editLocation.setText(s);
+			
+			super.onPostExecute(result);
+		}
+		
+		
+	}
+	
 	/*----------Listener class to get coordinates ------------- */
 	private class MyLocationListener implements LocationListener {
 		@Override
 		public void onLocationChanged(Location loc) {
 
-			editLocation.setText("");
 			pb.setVisibility(View.INVISIBLE);
 			Toast.makeText(
 					getBaseContext(),
@@ -136,9 +245,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			Log.v(TAG, longitude);
 			String latitude = "Latitude: " + loc.getLatitude();
 			Log.v(TAG, latitude);
-
 			/*----------to get City-Name from coordinates ------------- */
-			String cityName = null;
+			/*String cityName = null;
 			Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
 			List<Address> addresses;
 			try {
@@ -150,12 +258,24 @@ public class MainActivity extends Activity implements OnClickListener {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
+			
+			
+			
+			cityName = String.valueOf(getLocationInfo(loc));
+			
+			
+			
+			
 			String s = longitude + "\n" + latitude
 					+ "\n\nMy Currrent City is: " + cityName;
-			editLocation.setText(s);
+			editLocation.setText(s);*/
+			
+			new LocationTask().execute(loc);
 		}
 
+		
+		
+		
 		@Override
 		public void onProviderDisabled(String provider) {
 			// TODO Auto-generated method stub
