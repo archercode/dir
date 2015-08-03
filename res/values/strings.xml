@@ -4,5 +4,7 @@
     <string name="app_name">E-Directory</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="main_text">Get Current Location and City Name</string>
+	<string name="get_text">Get Location</string>
+    
 </resources>

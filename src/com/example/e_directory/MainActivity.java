@@ -61,6 +61,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		btnGetLocation = (Button) findViewById(R.id.btnLocation);
 		btnGetLocation.setOnClickListener(this);
+		btnGetLocation = (Button) findViewById(R.id.btnGetList);
+		btnGetLocation.setOnClickListener(this);
 
 		locationMangaer = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -68,6 +70,9 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		
+		switch(v.getId()){
+		case R.id.btnLocation:
 		flag = displayGpsStatus();
 		if (flag) {
 
@@ -87,8 +92,14 @@ public class MainActivity extends Activity implements OnClickListener {
 		} else {
 			alertbox("Gps Status!!", "Your GPS is: OFF");
 		}
+		break;
+		case R.id.btnGetList: 
+		//TODO: create dialog box with list view
+			
+		break;
+		}
 
-	}
+	} 
 
 	/*----Method to Check GPS is enable or disable ----- */
 	private Boolean displayGpsStatus() {
