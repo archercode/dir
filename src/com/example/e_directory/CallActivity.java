@@ -28,6 +28,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -39,13 +40,14 @@ public class CallActivity extends FragmentActivity{
 	private LocationManager locationMangaer = null;
 	private LocationListener locationListener = null;
 	
-	private ImageButton btnRefresh;
+	private ImageButton btnRefresh, btnSettings;
 	private Boolean flag = false;
 	
 	private final String TAG = "Edir";
 	
 	private LinearLayout ll_pb;
 	private TextView tv_city;
+	
 	
 	
 	
@@ -58,6 +60,13 @@ public class CallActivity extends FragmentActivity{
 		ll_pb = (LinearLayout)findViewById(R.id.layloadingH);
 		tv_city = (TextView)findViewById(R.id.tv_city);
 
+		tv_city.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				showCityList();
+			}
+		});
+		
 		locationMangaer = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		btnRefresh = (ImageButton)findViewById(R.id.btn_refresh);
 		btnRefresh.setOnClickListener(new OnClickListener(){
@@ -66,11 +75,7 @@ public class CallActivity extends FragmentActivity{
 				flag = displayGpsStatus();
 				if (flag) {
 
-					Log.v(TAG, "onClick");
-
-					/*editLocation.setText("Please!! move your device to"
-							+ " see the changes in coordinates." + "\nWait..");
-*/
+					Log.v(TAG, "onClick"); 
 					ll_pb.setVisibility(View.VISIBLE);
 					locationListener = new MyLocationListener();
 
@@ -84,6 +89,15 @@ public class CallActivity extends FragmentActivity{
 					alertbox("Gps Status!!", "Your GPS is: OFF");
 				}
 				
+			}
+		});
+		
+		btnSettings = (ImageButton)findViewById(R.id.btn_settings);
+		btnSettings.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(CallActivity.this, CityListActivity.class);
+				startActivity(intent);
 			}
 		});
 		
@@ -187,17 +201,21 @@ public class CallActivity extends FragmentActivity{
 			
 			JSONObject jsonRes = getLocationInfo(locs[0]);
 			
+			Log.d("butch", String.valueOf(jsonRes));
+			
 			try {
 				boolean found = false;
 				JSONArray addresses = ((JSONObject)jsonRes.getJSONArray("results").get(0)).getJSONArray("address_components");
 				for(int i = 0; i < addresses.length(); i++){
 					found = false;
 					JSONObject obj = (JSONObject) addresses.get(i);//new JSONObject(addresses.get(i));
-					
+
+					Log.d("butch", String.valueOf(obj));
 					JSONArray components = obj.getJSONArray("types");
+
+					Log.d("butch", String.valueOf(components));
 					
-					
-					for(int j = 0; j < components.length() || !found; j++) {
+					for(int j = 0; j < components.length() && !found; j++) {
 						if(components.get(j).toString().equals("locality")){
 							found = true;
 						}
@@ -228,11 +246,69 @@ public class CallActivity extends FragmentActivity{
 			// TODO Auto-generated method stub
 			String s = longitude + "\n" + latitude + "\n\nMy Currrent City is: " + cityName; 
 			tv_city.setText(cityName);
-			
+
+			if(!cityName.equals("")){
+				ll_pb.setVisibility(View.GONE); 
+                locationMangaer.removeUpdates(locationListener);
+			}
 			super.onPostExecute(result);
-		}
+		}   
 		
 		
+	}
+	
+	private void showCityList(){
+		AlertDialog.Builder builderSingle = new AlertDialog.Builder(
+                CallActivity.this);
+        //builderSingle.setIcon(R.drawable.ic_launcher);
+        builderSingle.setTitle("Select a city");
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+        		CallActivity.this,
+                android.R.layout.select_dialog_singlechoice);
+        
+        
+        arrayAdapter.addAll(CityNumberList.getInstance().getListOfCities());
+        
+        
+        builderSingle.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        builderSingle.setAdapter(arrayAdapter,
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    	String strName = arrayAdapter.getItem(which);
+                        dialog.dismiss();
+                    	
+                        tv_city.setText(strName);
+                        
+                        
+                        /*
+                    	AlertDialog.Builder builderInner = new AlertDialog.Builder(
+                                CallActivity.this);
+                        builderInner.setMessage(strName);
+                        builderInner.setTitle("Your Selected Item is");
+                        builderInner.setPositiveButton("Ok",
+                                new DialogInterface.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(
+                                            DialogInterface dialog,
+                                            int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        builderInner.show();*/
+                    }
+                });
+        builderSingle.show();
 	}
 	
 	/*----------Listener class to get coordinates ------------- */
@@ -240,46 +316,16 @@ public class CallActivity extends FragmentActivity{
 		@Override
 		public void onLocationChanged(Location loc) {
 
-			if(!tv_city.getText().equals(""))
-				ll_pb.setVisibility(View.INVISIBLE); 
-			
-			Toast.makeText(
-					getBaseContext(),
+			Toast.makeText( getBaseContext(),
 					"Location changed : Lat: " + loc.getLatitude() + " Lng: "
 							+ loc.getLongitude(), Toast.LENGTH_SHORT).show();
 			String longitude = "Longitude: " + loc.getLongitude();
 			Log.v(TAG, longitude);
 			String latitude = "Latitude: " + loc.getLatitude();
-			Log.v(TAG, latitude);
-			/*----------to get City-Name from coordinates ------------- */
-			/*String cityName = null;
-			Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
-			List<Address> addresses;
-			try {
-				addresses = gcd.getFromLocation(loc.getLatitude(),
-						loc.getLongitude(), 1);
-				if (addresses.size() > 0)
-					System.out.println(addresses.get(0).getLocality());
-				cityName = addresses.get(0).getLocality();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			
-			
-			cityName = String.valueOf(getLocationInfo(loc));
-			
-			
-			
-			
-			String s = longitude + "\n" + latitude
-					+ "\n\nMy Currrent City is: " + cityName;
-			editLocation.setText(s);*/
+			Log.v(TAG, latitude); 
 			
 			new LocationTask().execute(loc);
-		}
-
-		
+		}		
 		
 		
 		@Override

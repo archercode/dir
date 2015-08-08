@@ -12,32 +12,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:background="@color/text_white" >
 
         <ImageButton
             android:id="@+id/btn_refresh"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@drawable/btn_refresh"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_refresh" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="0dp"
-            android:layout_height="20dp"
+            android:layout_height="25dp"
             android:layout_gravity="center"
             android:layout_weight="4"
             android:src="@drawable/logo_banner" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/btn_settings"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@drawable/btn_settings" 
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_settings" />
+
     </LinearLayout>
 
     <TextView
@@ -83,6 +86,13 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_gravity="right"
+        android:layout_margin="10dp"
+        android:background="@android:drawable/ic_dialog_info" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -97,13 +107,6 @@
             android:background="@android:color/transparent"
             android:src="@drawable/btn_call" />
 
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="17dp"
-        android:layout_height="17dp"
-        android:layout_gravity="right"
-        android:layout_margin="10dp"
-        android:background="@android:drawable/ic_dialog_info" />
 
     </RelativeLayout>
 
