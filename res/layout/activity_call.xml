@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+<LinearLayout 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_red"
@@ -15,21 +20,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@android:drawable/stat_notify_sync" />
+            android:src="@drawable/btn_refresh"
+            android:background="@android:color/transparent" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
             android:layout_weight="4"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/logo_banner" />
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@android:drawable/ic_menu_preferences" />
+            android:src="@drawable/btn_settings" 
+            android:background="@android:color/transparent" />
     </LinearLayout>
 
     <TextView
@@ -67,6 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textStyle="bold"
             android:padding="3dp"
             android:text="Pasay City"
             android:textAlignment="center"
@@ -74,13 +83,6 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="17dp"
-        android:layout_height="17dp"
-        android:layout_gravity="right"
-        android:layout_margin="10dp"
-        android:background="@android:drawable/ic_dialog_info" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -92,34 +94,72 @@
             android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_call" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_call" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_gravity="right"
+        android:layout_margin="10dp"
+        android:background="@android:drawable/ic_dialog_info" />
+
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bg_black" >
+        android:background="@color/bg_black"
+        android:padding="5dp" >
 
-        <Button
-            android:id="@+id/button1"
+        <ImageButton
+            android:id="@+id/btn_police"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="Police" />
+            android:background="@android:color/transparent"
+            android:scaleType="center"
+            android:src="@drawable/btn_police" />
 
-        <Button
-            android:id="@+id/button3"
+        <ImageButton
+            android:id="@+id/btn_hosp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_weight="1"
-            android:text="Hospital" />
+            android:background="@android:color/transparent"
+            android:baselineAlignBottom="true"
+            android:cropToPadding="false"
+            android:src="@drawable/btn_hosp" />
 
-        <Button
-            android:id="@+id/button2"
+        <ImageButton
+            android:id="@+id/btn_fire"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="Fire Dept" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_fire" />
     </LinearLayout>
 
 </LinearLayout>
+
+<LinearLayout
+    android:id="@+id/layloadingH"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="0.20"
+	android:visibility="gone"
+    android:background="@android:color/darker_gray"
+    android:alpha="0.5"
+    android:gravity="center" >
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ProgressBar>
+    </LinearLayout>
+</FrameLayout>
