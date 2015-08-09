@@ -28,6 +28,12 @@ public class CityNumberList {
 		return cities;
 	}
 	
+
+	public CityNumber getNumbersOfCity(int cityNum){
+		return numbers.get(getListOfCities().get(cityNum));
+	}
+	
+	
 	public CityNumber getNumbersOfCity(String city){
 		return numbers.get(city);
 	}

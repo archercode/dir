@@ -72,23 +72,7 @@ public class CallActivity extends FragmentActivity{
 		btnRefresh.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				flag = displayGpsStatus();
-				if (flag) {
-
-					Log.v(TAG, "onClick"); 
-					ll_pb.setVisibility(View.VISIBLE);
-					locationListener = new MyLocationListener();
-
-					locationMangaer.requestLocationUpdates(
-							LocationManager.NETWORK_PROVIDER,
-							//LocationManager.GPS_PROVIDER,
-							5000, 10, locationListener);
-					
-
-				} else {
-					alertbox("Gps Status!!", "Your GPS is: OFF");
-				}
-				
+				lookForCity();			
 			}
 		});
 		
@@ -100,8 +84,35 @@ public class CallActivity extends FragmentActivity{
 				startActivity(intent);
 			}
 		});
-		
+		lookForCity();
 	}
+	
+	public void lookForCity(){
+		if (displayNetworkStatus()) {
+
+			Log.v(TAG, "onClick Network"); 
+			ll_pb.setVisibility(View.VISIBLE);
+			locationListener = new MyLocationListener();
+			
+			locationMangaer.requestLocationUpdates(
+					LocationManager.NETWORK_PROVIDER,
+					//LocationManager.GPS_PROVIDER,
+					5000, 10, locationListener); 
+
+		} else if(displayGpsStatus()){
+			
+			Log.v(TAG, "onClick"); 
+			ll_pb.setVisibility(View.VISIBLE);
+			locationListener = new MyLocationListener();
+			locationMangaer.requestLocationUpdates(
+					//LocationManager.NETWORK_PROVIDER,
+					LocationManager.GPS_PROVIDER,
+					5000, 10, locationListener); 
+		} else {
+			alertbox("Gps Status!!", "Your GPS is: OFF");
+		}
+	}
+	
 	
 	/*----Method to Check GPS is enable or disable ----- */
 	private Boolean displayGpsStatus() {
@@ -115,13 +126,26 @@ public class CallActivity extends FragmentActivity{
 			return false;
 		}
 	}
+	
+	private Boolean displayNetworkStatus() {
+		ContentResolver contentResolver = getBaseContext().getContentResolver();
+		boolean networkStatus = Settings.Secure.isLocationProviderEnabled(
+				contentResolver, LocationManager.NETWORK_PROVIDER);
+		if (networkStatus) {
+			return true;
 
+		} else {
+			return false;
+		}
+	}
+	
+	
 	/*----------Method to create an AlertBox ------------- */
 	protected void alertbox(String title, String mymessage) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setMessage("Your Device's GPS is Disable")
 				.setCancelable(false)
-				.setTitle("** Gps Status **")
+				.setTitle("E- Directory")
 				.setPositiveButton("Gps On",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
