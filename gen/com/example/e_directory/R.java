@@ -50,27 +50,14 @@ public final class R {
         public static final int police_inactive=0x7f020013;
     }
     public static final class id {
-<<<<<<< HEAD
-        public static final int action_settings=0x7f080007;
-        public static final int btnGetList=0x7f080003;
-        public static final int btnLocation=0x7f080002;
-        public static final int editTextLocation=0x7f080000;
-        public static final int layButtonH=0x7f080001;
-        public static final int layloadingH=0x7f080004;
-        public static final int lv_cities=0x7f080006;
-        public static final int progressBar1=0x7f080005;
-    }
-    public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int dialog_listview=0x7f030001;
-=======
         public static final int TextView01=0x7f090016;
         public static final int action_settings=0x7f09001d;
         public static final int btnGetList=0x7f090013;
         public static final int btnLocation=0x7f090012;
         public static final int btn_back=0x7f09000d;
+        public static final int btn_call=0x7f090007;
         public static final int btn_fire=0x7f09000a;
-        public static final int btn_hosp=0x7f090009;
+        public static final int btn_hospital=0x7f090009;
         public static final int btn_info=0x7f09000e;
         public static final int btn_police=0x7f090008;
         public static final int btn_refresh=0x7f090000;
@@ -80,7 +67,6 @@ public final class R {
         public static final int editTextLocation=0x7f090010;
         public static final int edit_hosp_number=0x7f090017;
         public static final int imageButton1=0x7f090006;
-        public static final int imageButton2=0x7f090007;
         public static final int imageView2=0x7f090001;
         public static final int layButtonH=0x7f090011;
         public static final int layloadingH=0x7f09000b;
@@ -101,7 +87,6 @@ public final class R {
         public static final int activity_main=0x7f030002;
         public static final int activity_numberdetails=0x7f030003;
         public static final int dialog_listview=0x7f030004;
->>>>>>> 49defafb3c17a3d31635efa696731d5992e2d8c7
     }
     public static final class menu {
         public static final int main=0x7f080000;
