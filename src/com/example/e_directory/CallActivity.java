@@ -13,98 +13,107 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class CallActivity extends FragmentActivity{
+	
 
 	private LocationManager locationMangaer = null;
 	private LocationListener locationListener = null;
-
-	private Button btnGetLocation = null;
-	private EditText editLocation = null;
-	private ProgressBar pb = null;
-
-	private static final String TAG = "Debug";
-	private Boolean flag = false;
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-
-		// if you want to lock screen for always Portrait mode
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-		pb = (ProgressBar) findViewById(R.id.progressBar1);
-		pb.setVisibility(View.INVISIBLE);
-
-		editLocation = (EditText) findViewById(R.id.editTextLocation);
-
-		btnGetLocation = (Button) findViewById(R.id.btnLocation);
-		btnGetLocation.setOnClickListener(this);
-		btnGetLocation = (Button) findViewById(R.id.btnGetList);
-		btnGetLocation.setOnClickListener(this);
-
-		locationMangaer = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		getLocationData();
-	}
-
-	@Override
-	public void onClick(View v) {
-		
-		switch(v.getId()){
-		case R.id.btnLocation:
-			getLocationData();
-		break;
-		case R.id.btnGetList: 
-		//TODO: create dialog box with list view
-			
-		break;
-		}
-
-	} 
 	
-	public void getLocationData(){
-		flag = displayGpsStatus();
-		if (flag) {
+	private ImageButton btnRefresh, btnSettings;
+	private Boolean flag = false;
+	
+	private final String TAG = "Edir";
+	
+	private LinearLayout ll_pb;
+	private TextView tv_city;
+	
+	
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_call);
+		
+		ll_pb = (LinearLayout)findViewById(R.id.layloadingH);
+		tv_city = (TextView)findViewById(R.id.tv_city);
 
-			Log.v(TAG, "onClick");
+		tv_city.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				showCityList();
+			}
+		});
+		
+		locationMangaer = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		btnRefresh = (ImageButton)findViewById(R.id.btn_refresh);
+		btnRefresh.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				lookForCity();			
+			}
+		});
+		
+		btnSettings = (ImageButton)findViewById(R.id.btn_settings);
+		btnSettings.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(CallActivity.this, CityListActivity.class);
+				startActivity(intent);
+			}
+		});
+		lookForCity();
+	}
+	
+	public void lookForCity(){
+		if (displayNetworkStatus()) {
 
-			editLocation.setText("Please!! move your device to"
-					+ " see the changes in coordinates." + "\nWait..");
-
-			pb.setVisibility(View.VISIBLE);
+			Log.v(TAG, "onClick Network"); 
+			ll_pb.setVisibility(View.VISIBLE);
 			locationListener = new MyLocationListener();
-
+			
 			locationMangaer.requestLocationUpdates(
 					LocationManager.NETWORK_PROVIDER,
 					//LocationManager.GPS_PROVIDER,
-					5000, 10, locationListener);
+					5000, 10, locationListener); 
 
+		} else if(displayGpsStatus()){
+			
+			Log.v(TAG, "onClick"); 
+			ll_pb.setVisibility(View.VISIBLE);
+			locationListener = new MyLocationListener();
+			locationMangaer.requestLocationUpdates(
+					//LocationManager.NETWORK_PROVIDER,
+					LocationManager.GPS_PROVIDER,
+					5000, 10, locationListener); 
 		} else {
 			alertbox("Gps Status!!", "Your GPS is: OFF");
 		}
 	}
-
+	
+	
 	/*----Method to Check GPS is enable or disable ----- */
 	private Boolean displayGpsStatus() {
 		ContentResolver contentResolver = getBaseContext().getContentResolver();
@@ -117,13 +126,26 @@ public class MainActivity extends Activity implements OnClickListener {
 			return false;
 		}
 	}
+	
+	private Boolean displayNetworkStatus() {
+		ContentResolver contentResolver = getBaseContext().getContentResolver();
+		boolean networkStatus = Settings.Secure.isLocationProviderEnabled(
+				contentResolver, LocationManager.NETWORK_PROVIDER);
+		if (networkStatus) {
+			return true;
 
+		} else {
+			return false;
+		}
+	}
+	
+	
 	/*----------Method to create an AlertBox ------------- */
 	protected void alertbox(String title, String mymessage) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setMessage("Your Device's GPS is Disable")
 				.setCancelable(false)
-				.setTitle("** Gps Status **")
+				.setTitle("E- Directory")
 				.setPositiveButton("Gps On",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
@@ -195,25 +217,36 @@ public class MainActivity extends Activity implements OnClickListener {
 			longitude = String.valueOf(locs[0].getLongitude());
 			latitude = String.valueOf(locs[0].getLatitude());
 			
+			
+			//cityName = latitude;
 			//cityName = String.valueOf(getLocationInfo(locs[0]));
 			
 			//TODO: parse JSON to show 
 			
 			JSONObject jsonRes = getLocationInfo(locs[0]);
 			
+			Log.d("butch", String.valueOf(jsonRes));
+			
 			try {
-				
+				boolean found = false;
 				JSONArray addresses = ((JSONObject)jsonRes.getJSONArray("results").get(0)).getJSONArray("address_components");
 				for(int i = 0; i < addresses.length(); i++){
+					found = false;
 					JSONObject obj = (JSONObject) addresses.get(i);//new JSONObject(addresses.get(i));
-					
+
+					Log.d("butch", String.valueOf(obj));
 					JSONArray components = obj.getJSONArray("types");
+
+					Log.d("butch", String.valueOf(components));
 					
-					
-					for(int j = 0; j < components.length(); j++) {
+					for(int j = 0; j < components.length() && !found; j++) {
 						if(components.get(j).toString().equals("locality")){
-							
+							found = true;
 						}
+					}
+					
+					if(found){
+						cityName = obj.getString("long_name")+" City";//"found!";
 					}
 					
 					
@@ -235,15 +268,71 @@ public class MainActivity extends Activity implements OnClickListener {
 		@Override
 		protected void onPostExecute(Void result) {
 			// TODO Auto-generated method stub
-			
-			String s = longitude + "\n" + latitude
-					+ "\n\nMy Currrent City is: " + cityName;
-			editLocation.setText(s);
-			
+			String s = longitude + "\n" + latitude + "\n\nMy Currrent City is: " + cityName; 
+			tv_city.setText(cityName);
+
+			if(!cityName.equals("")){
+				ll_pb.setVisibility(View.GONE); 
+                locationMangaer.removeUpdates(locationListener);
+			}
 			super.onPostExecute(result);
-		}
+		}   
 		
 		
+	}
+	
+	private void showCityList(){
+		AlertDialog.Builder builderSingle = new AlertDialog.Builder(
+                CallActivity.this);
+        //builderSingle.setIcon(R.drawable.ic_launcher);
+        builderSingle.setTitle("Select a city");
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+        		CallActivity.this,
+                android.R.layout.select_dialog_singlechoice);
+        
+        
+        arrayAdapter.addAll(CityNumberList.getInstance().getListOfCities());
+        
+        
+        builderSingle.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        builderSingle.setAdapter(arrayAdapter,
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    	String strName = arrayAdapter.getItem(which);
+                        dialog.dismiss();
+                    	
+                        tv_city.setText(strName);
+                        
+                        
+                        /*
+                    	AlertDialog.Builder builderInner = new AlertDialog.Builder(
+                                CallActivity.this);
+                        builderInner.setMessage(strName);
+                        builderInner.setTitle("Your Selected Item is");
+                        builderInner.setPositiveButton("Ok",
+                                new DialogInterface.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(
+                                            DialogInterface dialog,
+                                            int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        builderInner.show();*/
+                    }
+                });
+        builderSingle.show();
 	}
 	
 	/*----------Listener class to get coordinates ------------- */
@@ -251,44 +340,16 @@ public class MainActivity extends Activity implements OnClickListener {
 		@Override
 		public void onLocationChanged(Location loc) {
 
-			pb.setVisibility(View.INVISIBLE);
-			Toast.makeText(
-					getBaseContext(),
+			Toast.makeText( getBaseContext(),
 					"Location changed : Lat: " + loc.getLatitude() + " Lng: "
 							+ loc.getLongitude(), Toast.LENGTH_SHORT).show();
 			String longitude = "Longitude: " + loc.getLongitude();
 			Log.v(TAG, longitude);
 			String latitude = "Latitude: " + loc.getLatitude();
-			Log.v(TAG, latitude);
-			/*----------to get City-Name from coordinates ------------- */
-			/*String cityName = null;
-			Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
-			List<Address> addresses;
-			try {
-				addresses = gcd.getFromLocation(loc.getLatitude(),
-						loc.getLongitude(), 1);
-				if (addresses.size() > 0)
-					System.out.println(addresses.get(0).getLocality());
-				cityName = addresses.get(0).getLocality();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			
-			
-			cityName = String.valueOf(getLocationInfo(loc));
-			
-			
-			
-			
-			String s = longitude + "\n" + latitude
-					+ "\n\nMy Currrent City is: " + cityName;
-			editLocation.setText(s);*/
+			Log.v(TAG, latitude); 
 			
 			new LocationTask().execute(loc);
-		}
-
-		
+		}		
 		
 		
 		@Override
@@ -306,4 +367,5 @@ public class MainActivity extends Activity implements OnClickListener {
 			// TODO Auto-generated method stub
 		}
 	}
+
 }
