@@ -34,7 +34,7 @@ public class CityNumberDetailsActivity extends Activity{
 		tvPolice.setText(cityNumber.getPoliceNum());
 		tvFire.setText(cityNumber.getFireNum());
 		
-		String hospNum = (cityNumber.getCustomHosp() == null)? cityNumber.getHospNum(): cityNumber.getCustomHosp();
+		String hospNum = (cityNumber.getCustomHosp() == null) ? cityNumber.getHospNum(): cityNumber.getCustomHosp();
 		editHosp.setText(hospNum);
 
 		ImageButton btnBack = (ImageButton) findViewById(R.id.btn_back);

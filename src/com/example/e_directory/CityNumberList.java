@@ -50,8 +50,6 @@ public class CityNumberList {
 	}
 	
 	public void setUpNumberList(){
-		
-		
 		numbers.put("Manila", new CityNumber("Manila",
 				"225-3093", "527-3653", "554-8400"));
 		
@@ -133,9 +131,7 @@ public class CityNumberList {
 		numbers.put("Valenzuela City", new CityNumber("Valenzuela City",
 		"294-0656",
 		"292-3519",
-		"291-6801"));
-		
-		
+		"291-6801"));	
 	}
 	
 	
