@@ -15,22 +15,16 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class TermsActivity extends Activity{
+public class TermsInfoActivity extends Activity{
 	
 	private Context context;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_terms_info);
+		setContentView(R.layout.activity_terms);
 		
-		
-		final boolean isFirstLoad = SharedPrefManager.getInstance(getApplicationContext()).isFirstLoad();
-		
-		if(!isFirstLoad){
-			Intent intent = new Intent(TermsActivity.this,CallActivity.class);
-			startActivity(intent);
-		}
+		 
 		
  
 		String linkToPdf = "file:///android_asset/hero_support_terms.pdf";
@@ -44,28 +38,23 @@ public class TermsActivity extends Activity{
 		tv_terms.setText(readTxt(fileName));
 		
 		
-		Button btn_agree = (Button) findViewById(R.id.btn_agree);
+		Button btn_agree = (Button) findViewById(R.id.btn_save);
 		btn_agree.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(TermsActivity.this,UserInfoActivity.class);
-				intent.putExtra("fromTerms", isFirstLoad);
-				if(isFirstLoad)
-					SharedPrefManager.getInstance(getApplicationContext()).setFirstLoad(false);
+				Intent intent = new Intent(TermsInfoActivity.this,UserInfoActivity.class); 
 				startActivity(intent);
 			}
 		});
 		
-		Button btn_disagree = (Button) findViewById(R.id.btn_disagree);
+		Button btn_disagree = (Button) findViewById(R.id.btn_back);
 		btn_disagree.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				/*Intent intent = new Intent(TermsActivity.this,UserInfoActivity.class);
-				startActivity(intent);*/
+				finish();
 			}
 		});
 	}

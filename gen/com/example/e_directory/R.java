@@ -66,11 +66,7 @@ public final class R {
         public static final int btn_reset=0x7f09001c;
         public static final int btn_save=0x7f090015;
         public static final int btn_settings=0x7f090002;
-<<<<<<< HEAD
         public static final int btn_skip=0x7f090021;
-        public static final int button1=0x7f09001c;
-=======
->>>>>>> origin/master
         public static final int editTextLocation=0x7f090010;
         public static final int edit_hosp_number=0x7f090017;
         public static final int et_bday=0x7f090026;
@@ -106,8 +102,9 @@ public final class R {
         public static final int activity_main=0x7f030002;
         public static final int activity_numberdetails=0x7f030003;
         public static final int activity_terms=0x7f030004;
-        public static final int activity_userinfo=0x7f030005;
-        public static final int dialog_listview=0x7f030006;
+        public static final int activity_terms_info=0x7f030005;
+        public static final int activity_userinfo=0x7f030006;
+        public static final int dialog_listview=0x7f030007;
     }
     public static final class menu {
         public static final int main=0x7f080000;

@@ -92,7 +92,7 @@ public class UserInfoActivity extends Activity implements OnFocusChangeListener,
 		btnSubmit.setOnClickListener(this);
 		
 		Button btnSkip = (Button) findViewById(R.id.btn_skip);
-		btnSubmit.setOnClickListener(this);
+		btnSkip.setOnClickListener(this);
 	}
 
 	@Override

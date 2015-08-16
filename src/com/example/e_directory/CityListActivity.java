@@ -40,14 +40,17 @@ public class CityListActivity extends Activity {
 			
 		});
 		
-		ImageButton btnBack = (ImageButton) findViewById(R.id.btn_back);
-		btnBack.setOnClickListener(new OnClickListener() {
+		ImageButton btn_info = (ImageButton) findViewById(R.id.btn_info);
+		btn_info.setOnClickListener(new OnClickListener() {
 			
 			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				finish();
+			public void onClick(View arg0) { 
+
+				Intent intent = new Intent(CityListActivity.this, TermsInfoActivity.class); 
+				startActivity(intent);
 			}
 		});
+		
+		
 	}
 }

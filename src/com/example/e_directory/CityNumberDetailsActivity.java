@@ -1,7 +1,9 @@
 package com.example.e_directory;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -58,9 +60,27 @@ public class CityNumberDetailsActivity extends Activity{
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
+				
 				newHospitalNumber = editHosp.getText().toString();
 				cityNumber.setCustomHosp(newHospitalNumber);
 				SharedPrefManager.getInstance(getBaseContext()).saveString(cityNumber.getCity(),newHospitalNumber);
+				
+				AlertDialog.Builder builder = new AlertDialog.Builder(CityNumberDetailsActivity.this);
+				// Add the buttons
+				builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				               // User clicked OK button 
+				        	   dialog.cancel();
+				           }
+				       });
+				builder.setTitle("Hospital Number Status");
+				builder.setMessage("NThe new hospital number has been saved successfully.");
+				
+
+				// Create the AlertDialog
+				AlertDialog dialog = builder.create();
+				dialog.show();
+				
 			}
 		});
 		
