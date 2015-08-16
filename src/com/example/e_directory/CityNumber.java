@@ -14,6 +14,15 @@ public class CityNumber {
 		this.customHosp = null;
 	}
 	
+	public CityNumber(String city, String pNum, String fNum, String hNum, String customHosp){
+		
+		this.city = city; 
+		this.fireNum = fNum; 
+		this.hospNum = hNum; 
+		this.policeNum = pNum;
+		this.customHosp = customHosp;
+	}
+	
 	
 	public String getCity() {
 		return city;

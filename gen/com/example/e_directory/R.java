@@ -63,10 +63,14 @@ public final class R {
         public static final int btn_info=0x7f09000e;
         public static final int btn_police=0x7f090008;
         public static final int btn_refresh=0x7f090000;
+        public static final int btn_reset=0x7f09001c;
         public static final int btn_save=0x7f090015;
         public static final int btn_settings=0x7f090002;
+<<<<<<< HEAD
         public static final int btn_skip=0x7f090021;
         public static final int button1=0x7f09001c;
+=======
+>>>>>>> origin/master
         public static final int editTextLocation=0x7f090010;
         public static final int edit_hosp_number=0x7f090017;
         public static final int et_bday=0x7f090026;
