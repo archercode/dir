@@ -9,15 +9,13 @@ public class SharedPrefManager {
 	private static SharedPreferences sharedpreferences;
 	private final static String MyPREFERENCES = "edire"; 
 	
-	private SharedPrefManager() {
-	}
+	private SharedPrefManager() {}
 	
 	public static SharedPrefManager getInstance(Context ctx){
 		if(instance == null){
+			instance = new SharedPrefManager();
 			sharedpreferences = ctx.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 		}
-		
-		
 		return instance;
 	}
 	
@@ -27,6 +25,7 @@ public class SharedPrefManager {
 		editor.putString(key, value);
 		editor.commit();
 	}
+	
 	public void saveBoolean(String key, boolean value){
 		SharedPreferences.Editor editor = sharedpreferences.edit();
 		editor.putBoolean(key, value);
@@ -43,6 +42,10 @@ public class SharedPrefManager {
 	
 	public void setFirstLoad(){
 		this.saveBoolean("firstLoad",true);
+	}
+	
+	public String edittedHospitalNumber(String cityName){
+		return sharedpreferences.getString(cityName, null);
 	}
 	
 	

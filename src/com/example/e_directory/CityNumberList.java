@@ -51,7 +51,9 @@ public class CityNumberList {
 	
 	public void setUpNumberList(){
 		numbers.put("Manila", new CityNumber("Manila",
-				"225-3093", "527-3653", "554-8400"));
+	"225-3093", 
+				"527-3653", 
+				"554-8400"));
 		
 		numbers.put("Quezon City", new CityNumber("Quezon City",
 		"924-1025",

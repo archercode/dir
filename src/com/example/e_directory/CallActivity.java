@@ -115,11 +115,14 @@ public class CallActivity extends FragmentActivity {
 					numberToCall = arrayAdapter.getFireNum();
 				} else if (btnHospital.isSelected()) {
 					Log.d("isSelected", "Hospital");
-					numberToCall = arrayAdapter.getHospNum();
+					
+					String ifNumberNull = SharedPrefManager.getInstance(getBaseContext()).edittedHospitalNumber(arrayAdapter.getCity());
+					numberToCall = (ifNumberNull == null) ? arrayAdapter.getHospNum(): ifNumberNull;
+					
+//					numberToCall = arrayAdapter.getHospNum();
 				} else {
 					numberToCall = null;
 				}
-				//Log.d("number", arrayAdapter.getPoliceNum());
 				Log.d("number", numberToCall);
 				//Intent intent = new Intent(Intent.ACTION_CALL);
 				//intent.setData(Uri.parse("tel:" + numberToCall));

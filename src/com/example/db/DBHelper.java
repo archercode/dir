@@ -12,13 +12,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-	   public static final String DATABASE_NAME = "Hotlines.db";
-	   public static final String CONTACTS_TABLE_NAME = "hotlines";
+	public static final String DATABASE_NAME = "MyDBName.db";
+	   public static final String CONTACTS_TABLE_NAME = "contacts";
 	   public static final String CONTACTS_COLUMN_ID = "id";
-	   public static final String CONTACTS_COLUMN_CITY = "city";
-	   public static final String CONTACTS_COLUMN_POLICE = "police";
-	   public static final String CONTACTS_COLUMN_HOSPITAL = "hospital";
-	   public static final String CONTACTS_COLUMN_FIRE = "fire";
+	   public static final String CONTACTS_COLUMN_NAME = "name";
+	   public static final String CONTACTS_COLUMN_EMAIL = "email";
+	   public static final String CONTACTS_COLUMN_STREET = "street";
+	   public static final String CONTACTS_COLUMN_CITY = "place";
+	   public static final String CONTACTS_COLUMN_PHONE = "phone";
 	   private HashMap hp;
 
 	   public DBHelper(Context context)
@@ -30,8 +31,8 @@ public class DBHelper extends SQLiteOpenHelper {
 	   public void onCreate(SQLiteDatabase db) {
 	      // TODO Auto-generated method stub
 	      db.execSQL(
-	      "create table hotlines " +
-	      "(id integer primary key, city text,police text,hospital text, fire text)"
+	      "create table contacts " +
+	      "(id integer primary key, name text,phone text,email text, street text,place text)"
 	      );
 	   }
 
@@ -42,12 +43,16 @@ public class DBHelper extends SQLiteOpenHelper {
 	      onCreate(db);
 	   }
 
-	   public boolean changeHospital  (String hospital)
+	   public boolean insertContact  (String name, String phone, String email, String street,String place)
 	   {
 	      SQLiteDatabase db = this.getWritableDatabase();
 	      ContentValues contentValues = new ContentValues();
-	      contentValues.put("hospital", hospital);
-	      db.insert("hotlines", null, contentValues);
+	      contentValues.put("name", name);
+	      contentValues.put("phone", phone);
+	      contentValues.put("email", email);	
+	      contentValues.put("street", street);
+	      contentValues.put("place", place);
+	      db.insert("contacts", null, contentValues);
 	      return true;
 	   }
 	   
@@ -63,12 +68,16 @@ public class DBHelper extends SQLiteOpenHelper {
 	      return numRows;
 	   }
 	   
-	   public boolean updateHospital (Integer id, String hospital)
+	   public boolean updateContact (Integer id, String name, String phone, String email, String street,String place)
 	   {
 	      SQLiteDatabase db = this.getWritableDatabase();
 	      ContentValues contentValues = new ContentValues();
-	      contentValues.put("hospital", hospital);
-	      db.update("hotlines", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+	      contentValues.put("name", name);
+	      contentValues.put("phone", phone);
+	      contentValues.put("email", email);
+	      contentValues.put("street", street);
+	      contentValues.put("place", place);
+	      db.update("contacts", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
 	      return true;
 	   }
 
@@ -86,11 +95,11 @@ public class DBHelper extends SQLiteOpenHelper {
 	      
 	      //hp = new HashMap();
 	      SQLiteDatabase db = this.getReadableDatabase();
-	      Cursor res =  db.rawQuery( "select * from hotlines", null );
+	      Cursor res =  db.rawQuery( "select * from contacts", null );
 	      res.moveToFirst();
 	      
 	      while(res.isAfterLast() == false){
-	         array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUMN_CITY)));
+	         array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUMN_NAME)));
 	         res.moveToNext();
 	      }
 	   return array_list;
