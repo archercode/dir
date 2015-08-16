@@ -7,8 +7,12 @@ import java.io.InputStream;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class TermsActivity extends Activity{
@@ -19,26 +23,51 @@ public class TermsActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_terms);
-
-		//WebView mWebView = (WebView)findViewById(R.id.web_view_pdf);
-		//new WebView(TnCActivity.this);
-
-		//mWebView.getSettings().setJavaScriptEnabled(true);
-		//mWebView.getSettings().setPluginsEnabled(true);
+		
+		
+		final boolean isFirstLoad = SharedPrefManager.getInstance(getApplicationContext()).isFirstLoad();
+		
+		if(!isFirstLoad){
+			Intent intent = new Intent(TermsActivity.this,CallActivity.class);
+			startActivity(intent);
+		}
+		
+ 
 		String linkToPdf = "file:///android_asset/hero_support_terms.pdf";
 		File file = new File(linkToPdf);          
-		Uri path = Uri.fromFile(file);   
-
-		//mWebView.loadUrl("https://docs.google.com/gview?embedded=true&url="+linkToPdf);
+		Uri path = Uri.fromFile(file);    
 		
 		context = this.getApplicationContext();
 				
-		TextView tv_terms = (TextView)findViewById(R.id.tv_terms);
-		//String filename = "file:///android_asset/hero_support_terms.pdf";
+		TextView tv_terms = (TextView)findViewById(R.id.tv_terms); 
 		String fileName = "hero_support_terms_doc.txt";
 		tv_terms.setText(readTxt(fileName));
-				
 		
+		
+		Button btn_agree = (Button) findViewById(R.id.btn_agree);
+		btn_agree.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(TermsActivity.this,UserInfoActivity.class);
+				intent.putExtra("fromTerms", isFirstLoad);
+				if(isFirstLoad)
+					SharedPrefManager.getInstance(getApplicationContext()).setFirstLoad(false);
+				startActivity(intent);
+			}
+		});
+		
+		Button btn_disagree = (Button) findViewById(R.id.btn_disagree);
+		btn_disagree.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				/*Intent intent = new Intent(TermsActivity.this,UserInfoActivity.class);
+				startActivity(intent);*/
+			}
+		});
 	}
 
 

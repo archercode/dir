@@ -13,4 +13,6 @@
 	<string name="user_note_please">&#42; Please fill up the required fields</string>
 	
     
+	<string name="user_alert_title">Hero Support Updates and Assistance During National Emergencies PH</string>
+	<string name="user_alert_body">Would you like to sign up for this service now or later? You can do so anytime by going to the settings.</string>
 </resources>

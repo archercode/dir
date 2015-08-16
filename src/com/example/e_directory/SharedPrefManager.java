@@ -14,6 +14,7 @@ public class SharedPrefManager {
 	
 	public static SharedPrefManager getInstance(Context ctx){
 		if(instance == null){
+			instance = new SharedPrefManager();
 			sharedpreferences = ctx.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 		}
 		
@@ -38,11 +39,11 @@ public class SharedPrefManager {
 	}
 	
 	public boolean isFirstLoad(){
-		return sharedpreferences.getBoolean("firstLoad", false);
+		return sharedpreferences.getBoolean("firstLoad", true);
 	}
 	
-	public void setFirstLoad(){
-		this.saveBoolean("firstLoad",true);
+	public void setFirstLoad(boolean value){
+		this.saveBoolean("firstLoad",value);
 	}
 	
 	

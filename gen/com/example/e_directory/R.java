@@ -51,11 +51,13 @@ public final class R {
     }
     public static final class id {
         public static final int TextView01=0x7f090016;
-        public static final int action_settings=0x7f090028;
+        public static final int action_settings=0x7f09002c;
         public static final int btnGetList=0x7f090013;
         public static final int btnLocation=0x7f090012;
+        public static final int btn_agree=0x7f090020;
         public static final int btn_back=0x7f09000d;
         public static final int btn_call=0x7f090007;
+        public static final int btn_disagree=0x7f09001f;
         public static final int btn_fire=0x7f09000a;
         public static final int btn_hospital=0x7f090009;
         public static final int btn_info=0x7f09000e;
@@ -63,16 +65,18 @@ public final class R {
         public static final int btn_refresh=0x7f090000;
         public static final int btn_save=0x7f090015;
         public static final int btn_settings=0x7f090002;
+        public static final int btn_skip=0x7f090021;
         public static final int button1=0x7f09001c;
         public static final int editTextLocation=0x7f090010;
         public static final int edit_hosp_number=0x7f090017;
-        public static final int et_bday=0x7f090022;
-        public static final int et_city=0x7f090024;
-        public static final int et_email=0x7f090020;
-        public static final int et_gender=0x7f090023;
-        public static final int et_name_first=0x7f09001e;
-        public static final int et_name_last=0x7f09001f;
-        public static final int et_phone=0x7f090021;
+        public static final int et_bday=0x7f090026;
+        public static final int et_city=0x7f090028;
+        public static final int et_email=0x7f090024;
+        public static final int et_gender=0x7f090027;
+        public static final int et_name_first=0x7f090022;
+        public static final int et_name_last=0x7f090023;
+        public static final int et_phone=0x7f090025;
+        public static final int header_terms=0x7f09001d;
         public static final int imageButton1=0x7f090006;
         public static final int imageView2=0x7f090001;
         public static final int layButtonH=0x7f090011;
@@ -85,12 +89,12 @@ public final class R {
         public static final int tv_f=0x7f09001a;
         public static final int tv_f_num=0x7f09001b;
         public static final int tv_label_current_loc=0x7f090004;
-        public static final int tv_note=0x7f090026;
-        public static final int tv_note_head=0x7f090025;
+        public static final int tv_note=0x7f09002a;
+        public static final int tv_note_head=0x7f090029;
         public static final int tv_p=0x7f090018;
         public static final int tv_p_num=0x7f090019;
-        public static final int tv_please=0x7f090027;
-        public static final int tv_terms=0x7f09001d;
+        public static final int tv_please=0x7f09002b;
+        public static final int tv_terms=0x7f09001e;
     }
     public static final class layout {
         public static final int activity_call=0x7f030000;
@@ -110,6 +114,8 @@ public final class R {
         public static final int get_text=0x7f060004;
         public static final int hello_world=0x7f060001;
         public static final int main_text=0x7f060003;
+        public static final int user_alert_body=0x7f060009;
+        public static final int user_alert_title=0x7f060008;
         public static final int user_note=0x7f060006;
         public static final int user_note_header=0x7f060005;
         public static final int user_note_please=0x7f060007;
