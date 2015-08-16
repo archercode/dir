@@ -55,8 +55,9 @@ public final class R {
         public static final int btnGetList=0x7f090013;
         public static final int btnLocation=0x7f090012;
         public static final int btn_back=0x7f09000d;
+        public static final int btn_call=0x7f090007;
         public static final int btn_fire=0x7f09000a;
-        public static final int btn_hosp=0x7f090009;
+        public static final int btn_hospital=0x7f090009;
         public static final int btn_info=0x7f09000e;
         public static final int btn_police=0x7f090008;
         public static final int btn_refresh=0x7f090000;
@@ -73,7 +74,6 @@ public final class R {
         public static final int et_name_last=0x7f09001f;
         public static final int et_phone=0x7f090021;
         public static final int imageButton1=0x7f090006;
-        public static final int imageButton2=0x7f090007;
         public static final int imageView2=0x7f090001;
         public static final int layButtonH=0x7f090011;
         public static final int layloadingH=0x7f09000b;

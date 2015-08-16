@@ -288,9 +288,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			new LocationTask().execute(loc);
 		}
 
-		
-		
-		
 		@Override
 		public void onProviderDisabled(String provider) {
 			// TODO Auto-generated method stub
