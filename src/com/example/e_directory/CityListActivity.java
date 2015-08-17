@@ -51,6 +51,13 @@ public class CityListActivity extends Activity {
 			}
 		});
 		
-		
+		ImageButton btn_back = (ImageButton) findViewById(R.id.btn_back);
+		btn_back.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				finish();
+			}
+		});
 	}
 }

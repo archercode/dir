@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class TermsInfoActivity extends Activity{
@@ -24,7 +25,6 @@ public class TermsInfoActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_terms);
 		
-		 
 		
  
 		String linkToPdf = "file:///android_asset/hero_support_terms.pdf";
@@ -49,8 +49,8 @@ public class TermsInfoActivity extends Activity{
 			}
 		});
 		
-		Button btn_disagree = (Button) findViewById(R.id.btn_back);
-		btn_disagree.setOnClickListener(new OnClickListener() {
+		ImageButton btn_back = (ImageButton) findViewById(R.id.btn_back);
+		btn_back.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
