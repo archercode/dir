@@ -12,15 +12,16 @@
         android:layout_alignParentTop="true"
         android:background="@color/text_white" >
 
-        <ImageButton
-            android:id="@+id/btn_back"
+        
+        <Button
+            android:id="@+id/btn_skip"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
+            android:textSize="12dp"
             android:background="@android:color/transparent"
-            android:src="@android:drawable/ic_menu_revert"
-            android:visibility="invisible" />
+			android:text="Skip"/>
 
         <RelativeLayout
             android:id="@+id/imageView2"

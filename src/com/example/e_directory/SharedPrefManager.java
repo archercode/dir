@@ -37,11 +37,11 @@ public class SharedPrefManager {
 	}
 	
 	public boolean isFirstLoad(){
-		return sharedpreferences.getBoolean("firstLoad", false);
+		return sharedpreferences.getBoolean("firstLoad", true);
 	}
 	
-	public void setFirstLoad(){
-		this.saveBoolean("firstLoad",true);
+	public void setFirstLoad(boolean value){
+		this.saveBoolean("firstLoad",value);
 	}
 	
 	public String edittedHospitalNumber(String cityName){

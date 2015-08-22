@@ -1,77 +1,77 @@
-‏Terms and Conditions
+Terms and Conditions
 
-‏Vision Mission
+Vision Mission
 
-‏The creators of Hero Support E-Directory app, aim to help simplify calling for emergency services in the Philippines.
+The creators of Hero Support E-Directory app, aim to help simplify calling for emergency services in the Philippine.
 
 
-‏Scope and Limitations
+Scope and Limitations
 
 User Location Information
 
-‏Hero Support E-Directory App is a tool to help find the nearest emergency hotline for Police, Ambulance and Fire Department Services in the Philippines.
+Hero Support E-Directory App is a tool to help find the nearest emergency hotline for Police, Ambulance and Fire Department Services in the Philippines.
 
-‏The App uses the user's location to determine what hotline to call and loads it automatically on the dial button within the App. The App will only be able to do this feature, if the user allows the app to access the location information of the smart phone he or she is using. The App also will not be able to locate the user's information if the cellular data of the user's smart phone is off or unavailable.
+The App uses the user's location to determine what hotline to call and loads it automatically on the dial button within the App. The App will only be able to do this feature, if the user allows the app to access the location information of the smart phone he or she is using. The App also will not be able to locate the user's information if the cellular data of the user's smart phone is off or unavailable.
 
-‏To ensure E-Directory will work properly, make sure the following are enabled:
-‏	•	Location Services 
-‏	•	Cellular Data
+To ensure E-Directory will work properly, make sure the following are enabled:
+	•	Location Services 
+	•	Cellular Data
 
 Billing for Emergency Calls
 
-‏Hero Support does support free calls made through the app. Emergency calls made using the app are subjected to the rates of the user's network provider.
+Hero Support does support free calls made through the app. Emergency calls made using the app are subjected to the rates of the user's network provider.
 
-‏Please advise that emergency calls cannot be made without the appropriate balance from the user's account.
+Please advise that emergency calls cannot be made without the appropriate balance from the user's account.
 
 
 Scope of Emergency Hotlines
 
-‏Hero Support E-Directory only supports Metro Manila and its 17 cities namely:
+Hero Support E-Directory only supports Metro Manila and its 17 cities namely:
 
-‏	•	Manila 
-‏	•	Quezon City
-‏	•	Caloocan City
-‏	•	Las Pinas City
-‏	•	Makati City
-‏	•	Malabon City
-‏	•	Mandaluyong City
-‏	•	Marikina City
-‏	•	Muntinlupa City
-‏	•	Navotas City
-‏	•	Parañaque City
-‏	•	Pasay City
-‏	•	Pasig City
-‏	•	Pateros City
-‏	•	San Juan City
-‏	•	Taguig City
-‏	•	Valenzuela City
+	•	Manila 
+	•	Quezon City
+	•	Caloocan City
+	•	Las Pinas City
+	•	Makati City
+	•	Malabon City
+	•	Mandaluyong City
+	•	Marikina City
+	•	Muntinlupa City
+	•	Navotas City
+	•	Parañaque City
+	•	Pasay City
+	•	Pasig City
+	•	Pateros City
+	•	San Juan City
+	•	Taguig City
+	•	Valenzuela City
 
 
-‏Emergency hotlines for Police, Hospitals and Fire Department Services are encoded from the official government websites. The creators of the Hero Support plans to further expand its database of emergency hotlines throughout the Philippines in the foreseeable future, but as of this moment, it only has the capability on detecting emergency hotlines within Metro Manila.The app will not work properly anywhere beyond this scope.
+Emergency hotlines for Police, Hospitals and Fire Department Services are encoded from the official government websites. The creators of the Hero Support plans to further expand its database of emergency hotlines throughout the Philippines in the foreseeable future, but as of this moment, it only has the capability on detecting emergency hotlines within Metro Manila.The app will not work properly anywhere beyond this scope.
 
 Emergency Hotline modification and limitation
 
-‏All hotlines for the Police and Fire department services are not allowed to be modified to ensure authenticity . Ambulance services however, can be customized by the user according to their preferred Hospitals in the settings page.
+All hotlines for the Police and Fire department services are not allowed to be modified to ensure authenticity . Ambulance services however, can be customized by the user according to their preferred Hospitals in the settings page.
 
-‏The user must also be aware that the default Hospitals for ambulance services encoded in the app are Public or Government Hospitals. To change it to your preferred hospital, the user is advised to encode its telephone number manually from the settings page.
+The user must also be aware that the default Hospitals for ambulance services encoded in the app are Public or Government Hospitals. To change it to your preferred hospital, the user is advised to encode its telephone number manually from the settings page.
 
-‏The user should be aware that Hero Support and its creators has the right to change the default numbers to all hotlines in future updates and versions. Any modifications and information made by the user to the settings will be lost with each new update. The user is advised to re-encoded their desired hospital hotlines with every new update.
+The user should be aware that Hero Support and its creators has the right to change the default numbers to all hotlines in future updates and versions. Any modifications and information made by the user to the settings will be lost with each new update. The user is advised to re-encoded their desired hospital hotlines with every new update.
 
-‏In case of no-response, network failure or miscommunication.
+In case of no-response, network failure or miscommunication.
 
-‏Please be advised that Hero Support E-Directory app is private initiative on creating a tool for calling emergency services in the Philippines. Please be informed that its creators or entity do not hold any official position in the Philippine government. By agreeing to this terms and conditions, the user acknowledges that the creators of Hero Support will not be held liable for any injury or death caused by failed response of these emergency services.
+Please be advised that Hero Support E-Directory app is private initiative on creating a tool for calling emergency services in the Philippines. Please be informed that its creators or entity do not hold any official position in the Philippine government. By agreeing to this terms and conditions, the user acknowledges that the creators of Hero Support will not be held liable for any injury or death caused by failed response of these emergency services.
 
-‏Users are asked to use this app safely and responsibly. Please call for emergency assistance only in cases of real and actual emergencies. Prank calls, acts of nuisance, and the like are prohibited. Please be reminded that the time of our Police, Fire Department, and Hospital partners are important, and we want to concentrate their efforts on helping users who are involved in real emergencies. Users who are caught making prank calls will be reported to the proper authorities, and dealt with accordingly.
+Users are asked to use this app safely and responsibly. Please call for emergency assistance only in cases of real and actual emergencies. Prank calls, acts of nuisance, and the like are prohibited. Please be reminded that the time of our Police, Fire Department, and Hospital partners are important, and we want to concentrate their efforts on helping users who are involved in real emergencies. Users who are caught making prank calls will be reported to the proper authorities, and dealt with accordingly.
 
 Advertising
 
-‏To sustain its operational costs and keep the service free, the creators of this app has authorized the use of ads within is interface.The user is advised that by using this app, he or she agrees that these ads will be able to access their  personal information from their smartphones. 
+To sustain its operational costs and keep the service free, the creators of this app has authorized the use of ads within is interface.The user is advised that by using this app, he or she agrees that these ads will be able to access their  personal information from their smartphones. 
 
-‏Hero Support and its creators will is not liable on how these information will be used by these third party providers.
+Hero Support and its creators will is not liable on how these information will be used by these third party providers.
 
 *Copyright and Trademarks
 
-‏Hero Support and E- Directory is under trademark.
-‏Any unauthorized reproduction and distribution of this app is punishable by law.
+Hero Support and E- Directory is under trademark.
+Any unauthorized reproduction and distribution of this app is punishable by law.
 
-‏All rights Reserved Copyright 2015. 
+All rights Reserved Copyright 2015. 
