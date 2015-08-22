@@ -327,8 +327,10 @@ public class CallActivity extends FragmentActivity {
 						}
 					}
 
-					if (found) {
-						cityName = obj.getString("long_name") + " City";// "found!";
+					if (found) { 
+						cityName = obj.getString("long_name");
+						if(!cityName.equals("Manila"))
+							cityName += " City";// "found!";
 					}
 
 				}
