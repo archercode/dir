@@ -21,15 +21,16 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -39,14 +40,14 @@ public class CallActivity extends FragmentActivity {
 
 	private LocationManager locationMangaer = null;
 	private LocationListener locationListener = null;
-
-	private ImageButton btnRefresh, btnSettings, btnCall, btnPolice,
+	private ImageButton btnRefresh, btnSettings, btnCall, btnInfo;
+	private Button btnPolice,
 			btnHospital, btnFire;
 	private Boolean flag = false;
 
 	private final String TAG = "Edir";
 
-	private LinearLayout ll_pb;
+	private LinearLayout ll_pb, ll_city;
 	private TextView tv_city;
 	private TextView tv_dept;
 
@@ -58,17 +59,19 @@ public class CallActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_call);
 
-		btnPolice = (ImageButton) findViewById(R.id.btn_police);
-		btnHospital = (ImageButton) findViewById(R.id.btn_hospital);
-		btnFire = (ImageButton) findViewById(R.id.btn_fire);
+		btnPolice = (Button) findViewById(R.id.btn_police);
+		btnHospital = (Button) findViewById(R.id.btn_hospital);
+		btnFire = (Button) findViewById(R.id.btn_fire);
+		btnInfo = (ImageButton) findViewById(R.id.btn_info);
 
 		tv_dept = (TextView) findViewById(R.id.tv_dept);
 
 		ll_pb = (LinearLayout) findViewById(R.id.layloadingH);
+		ll_city = (LinearLayout) findViewById(R.id.tv_city_header);
 		tv_city = (TextView) findViewById(R.id.tv_city);
 		btnPolice.setSelected(true);
 
-		tv_city.setOnClickListener(new OnClickListener() {
+		ll_city.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				showCityList();
@@ -81,6 +84,12 @@ public class CallActivity extends FragmentActivity {
 			@Override
 			public void onClick(View arg0) {
 				lookForCity();
+			}
+		});
+		btnInfo.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				showAboutDialog();
 			}
 		});
 
@@ -246,6 +255,56 @@ public class CallActivity extends FragmentActivity {
 		alert.show();
 	}
 
+	protected void showAboutDialog() {
+		
+		
+		LayoutInflater inflater = this.getLayoutInflater();
+
+		
+		
+		View view = inflater.inflate(R.layout.dialog_about, null);
+		TextView info = (TextView) view.findViewById(R.id.tv_founders);
+		info.setText("Co-founders:"+System.getProperty("line.separator")
+						+"Gerard Navarro"+System.getProperty("line.separator")
+						+"Ronald Paglinawan"+System.getProperty("line.separator")
+						+"Vincent Cheng"+System.getProperty("line.separator")
+						+"Jorge Ejercito"+System.getProperty("line.separator")
+						+"Rodel Tarroza"+System.getProperty("line.separator")
+						+"Ron Villaraza"+System.getProperty("line.separator")+System.getProperty("line.separator")
+						+"contact us at"+System.getProperty("line.separator")
+						+"info@herosupportph.com"+System.getProperty("line.separator")
+						+"Copyright(c) and Trademark(TM) 2015."+System.getProperty("line.separator")
+						+"All rights reserved.");
+		
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder
+				.setCancelable(false)
+				.setView(view) 
+				.setTitle("About E- Directory")
+				.setPositiveButton("OK",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// finish the current activity
+								// AlertBoxAdvance.this.finish();
+								Intent myIntent = new Intent(
+										Settings.ACTION_SECURITY_SETTINGS);
+								startActivity(myIntent);
+								dialog.cancel();
+							}
+						})
+				.setNegativeButton("Cancel",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// cancel the dialog box
+								dialog.cancel();
+							}
+						});
+		AlertDialog alert = builder.create();
+		alert.show();
+	}
+
+	
 	public static JSONObject getLocationInfo(Location loc) {
 		StringBuilder stringBuilder = new StringBuilder();
 		try {
@@ -407,10 +466,10 @@ public class CallActivity extends FragmentActivity {
 		@Override
 		public void onLocationChanged(Location loc) {
 
-			Toast.makeText(
-					getBaseContext(),
-					"Location changed : Lat: " + loc.getLatitude() + " Lng: "
-							+ loc.getLongitude(), Toast.LENGTH_SHORT).show();
+//			Toast.makeText(
+//					getBaseContext(),
+//					"Location changed : Lat: " + loc.getLatitude() + " Lng: "
+//							+ loc.getLongitude(), Toast.LENGTH_SHORT).show();
 			String longitude = "Longitude: " + loc.getLongitude();
 			Log.v(TAG, longitude);
 			String latitude = "Latitude: " + loc.getLatitude();

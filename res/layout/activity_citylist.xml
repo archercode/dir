@@ -17,7 +17,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:src="@android:drawable/ic_menu_revert"/> 
+            android:src="@drawable/ic_arrow_back_black_24dp"/> 
 
         <RelativeLayout
             android:id="@+id/imageView2"
@@ -43,9 +43,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_weight="1" 
             android:background="@android:color/transparent"
-            android:src="@android:drawable/ic_menu_info_details" />
+        android:src="@drawable/ic_info_outline_black_24dp"  />
 
     </LinearLayout>
 

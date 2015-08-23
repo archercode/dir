@@ -42,26 +42,30 @@ public final class R {
         public static final int fire_inactive=0x7f02000b;
         public static final int hospital_active=0x7f02000c;
         public static final int hospital_inactive=0x7f02000d;
-        public static final int ic_launcher=0x7f02000e;
-        public static final int logo_banner=0x7f02000f;
-        public static final int more_active=0x7f020010;
-        public static final int more_inactive=0x7f020011;
-        public static final int police_active=0x7f020012;
-        public static final int police_inactive=0x7f020013;
+        public static final int ic_arrow_back_black_24dp=0x7f02000e;
+        public static final int ic_edire_logo=0x7f02000f;
+        public static final int ic_info_outline_black_24dp=0x7f020010;
+        public static final int ic_refresh_black_24dp=0x7f020011;
+        public static final int ic_settings_black_24dp=0x7f020012;
+        public static final int logo_banner=0x7f020013;
+        public static final int more_active=0x7f020014;
+        public static final int more_inactive=0x7f020015;
+        public static final int police_active=0x7f020016;
+        public static final int police_inactive=0x7f020017;
     }
     public static final class id {
         public static final int TextView01=0x7f090016;
-        public static final int action_settings=0x7f09002c;
+        public static final int action_settings=0x7f09002d;
         public static final int btnGetList=0x7f090013;
         public static final int btnLocation=0x7f090012;
         public static final int btn_agree=0x7f090020;
-        public static final int btn_back=0x7f09000d;
-        public static final int btn_call=0x7f090007;
+        public static final int btn_back=0x7f09000e;
+        public static final int btn_call=0x7f090008;
         public static final int btn_disagree=0x7f09001f;
         public static final int btn_fire=0x7f09000a;
         public static final int btn_hospital=0x7f090009;
-        public static final int btn_info=0x7f09000e;
-        public static final int btn_police=0x7f090008;
+        public static final int btn_info=0x7f090007;
+        public static final int btn_police=0x7f09000b;
         public static final int btn_refresh=0x7f090000;
         public static final int btn_reset=0x7f09001c;
         public static final int btn_save=0x7f090015;
@@ -77,17 +81,18 @@ public final class R {
         public static final int et_name_last=0x7f090023;
         public static final int et_phone=0x7f090025;
         public static final int header_terms=0x7f09001d;
-        public static final int imageButton1=0x7f090006;
         public static final int imageView2=0x7f090001;
         public static final int layButtonH=0x7f090011;
-        public static final int layloadingH=0x7f09000b;
+        public static final int layloadingH=0x7f09000c;
         public static final int lv_cities=0x7f09000f;
-        public static final int progressBar1=0x7f09000c;
-        public static final int tv_city=0x7f090005;
+        public static final int progressBar1=0x7f09000d;
+        public static final int tv_city=0x7f090006;
         public static final int tv_cityName=0x7f090014;
+        public static final int tv_city_header=0x7f090005;
         public static final int tv_dept=0x7f090003;
         public static final int tv_f=0x7f09001a;
         public static final int tv_f_num=0x7f09001b;
+        public static final int tv_founders=0x7f09002c;
         public static final int tv_label_current_loc=0x7f090004;
         public static final int tv_note=0x7f09002a;
         public static final int tv_note_head=0x7f090029;
@@ -104,7 +109,8 @@ public final class R {
         public static final int activity_terms=0x7f030004;
         public static final int activity_terms_info=0x7f030005;
         public static final int activity_userinfo=0x7f030006;
-        public static final int dialog_listview=0x7f030007;
+        public static final int dialog_about=0x7f030007;
+        public static final int dialog_listview=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f080000;

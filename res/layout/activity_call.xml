@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:src="@drawable/btn_refresh" />
+            android:src="@drawable/ic_refresh_black_24dp" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -39,7 +39,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:src="@drawable/btn_settings" />
+            android:src="@drawable/ic_settings_black_24dp" />
 
     </LinearLayout>
 
@@ -71,6 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/text_white"
+            android:id="@+id/tv_city_header"
         android:orientation="vertical" >
 
         <TextView
@@ -87,12 +88,12 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/btn_info"
         android:layout_width="17dp"
         android:layout_height="17dp"
         android:layout_gravity="right"
         android:layout_margin="10dp"
-        android:background="@android:drawable/ic_dialog_info" />
+        android:background="@drawable/ic_info_outline_black_24dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -110,42 +111,41 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="@color/bg_black"
         android:padding="5dp" >
 
-        <ImageButton
-            android:id="@+id/btn_police"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:scaleType="center"
-            android:src="@drawable/btn_police" />
-
-        <ImageButton
+        <Button
             android:id="@+id/btn_hospital"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:baselineAlignBottom="true"
-            android:cropToPadding="false"
-            android:src="@drawable/btn_hosp" />
+            android:layout_width="32dp"
+            android:layout_height="35dp"
+            android:layout_alignBaseline="@+id/btn_fire"
+            android:layout_alignBottom="@+id/btn_fire" 
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_hosp" />
 
-        <ImageButton
+        <Button
+            android:id="@+id/btn_police"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="35dp"
+            android:background="@drawable/btn_police"
+            android:scaleType="center" />
+
+        <Button
             android:id="@+id/btn_fire"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:src="@drawable/btn_fire" />
-    </LinearLayout>
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/btn_fire" />
+
+    </RelativeLayout>
 
 </LinearLayout>
 

@@ -34,7 +34,7 @@ public class UserInfoActivity extends Activity implements OnFocusChangeListener,
 		       });
 		builder.setTitle(R.string.user_alert_title);
 		builder.setMessage(this.getResources().getString(R.string.user_note) 
-				+ " " + this.getResources().getString(R.string.user_alert_body));
+				+ System.getProperty("line.separator") + this.getResources().getString(R.string.user_alert_body));
 		
 
 		// Create the AlertDialog
