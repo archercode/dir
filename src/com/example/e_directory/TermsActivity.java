@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ public class TermsActivity extends Activity{
 		if(!isFirstLoad){
 			Intent intent = new Intent(TermsActivity.this,CallActivity.class);
 			startActivity(intent);
+			finish();
 		}
 		
  
@@ -55,6 +58,7 @@ public class TermsActivity extends Activity{
 				if(isFirstLoad)
 					SharedPrefManager.getInstance(getApplicationContext()).setFirstLoad(false);
 				startActivity(intent);
+				finish();
 			}
 		});
 		
@@ -64,8 +68,21 @@ public class TermsActivity extends Activity{
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				/*Intent intent = new Intent(TermsActivity.this,UserInfoActivity.class);
-				startActivity(intent);*/
+				AlertDialog.Builder builder = new AlertDialog.Builder(TermsActivity.this);
+				// Add the buttons
+				builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				               // User clicked OK button 
+				        	   dialog.cancel();
+				           }
+				       }); 
+				builder.setTitle("User has declined the Terms and Conditions");
+				builder.setMessage("Please hit the Home button to exit the app.");
+				
+
+				// Create the AlertDialog
+				AlertDialog dialog = builder.create();
+				dialog.show();
 			}
 		});
 	}

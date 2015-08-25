@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -34,7 +35,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class CallActivity extends FragmentActivity {
 
@@ -116,14 +116,11 @@ public class CallActivity extends FragmentActivity {
 				String numberToCall = null;
 				arrayAdapter = CityNumberList.getInstance().getNumbersOfCity(
 						cityName);
-				if (btnPolice.isSelected()) {
-					Log.d("isSelected", "Police");
+				if (btnPolice.isSelected()) { 
 					numberToCall = arrayAdapter.getPoliceNum();
-				} else if (btnFire.isSelected()) {
-					Log.d("isSelected", "Fire");
+				} else if (btnFire.isSelected()) { 
 					numberToCall = arrayAdapter.getFireNum();
-				} else if (btnHospital.isSelected()) {
-					Log.d("isSelected", "Hospital");
+				} else if (btnHospital.isSelected()) { 
 					
 					String ifNumberNull = SharedPrefManager.getInstance(getBaseContext()).edittedHospitalNumber(arrayAdapter.getCity());
 					numberToCall = (ifNumberNull == null) ? arrayAdapter.getHospNum(): ifNumberNull;
@@ -132,10 +129,10 @@ public class CallActivity extends FragmentActivity {
 				} else {
 					numberToCall = null;
 				}
-				Log.d("number", numberToCall);
-				//Intent intent = new Intent(Intent.ACTION_CALL);
-				//intent.setData(Uri.parse("tel:" + numberToCall));
-				//startActivity(intent);
+				 
+				Intent intent = new Intent(Intent.ACTION_CALL);
+				intent.setData(Uri.parse("tel:" + numberToCall));
+				startActivity(intent);
 			}
 		});
 
@@ -239,7 +236,7 @@ public class CallActivity extends FragmentActivity {
 								// finish the current activity
 								// AlertBoxAdvance.this.finish();
 								Intent myIntent = new Intent(
-										Settings.ACTION_SECURITY_SETTINGS);
+										Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 								startActivity(myIntent);
 								dialog.cancel();
 							}
@@ -257,11 +254,7 @@ public class CallActivity extends FragmentActivity {
 
 	protected void showAboutDialog() {
 		
-		
 		LayoutInflater inflater = this.getLayoutInflater();
-
-		
-		
 		View view = inflater.inflate(R.layout.dialog_about, null);
 		TextView info = (TextView) view.findViewById(R.id.tv_founders);
 		info.setText("Co-founders:"+System.getProperty("line.separator")
@@ -285,18 +278,6 @@ public class CallActivity extends FragmentActivity {
 				.setPositiveButton("OK",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
-								// finish the current activity
-								// AlertBoxAdvance.this.finish();
-								Intent myIntent = new Intent(
-										Settings.ACTION_SECURITY_SETTINGS);
-								startActivity(myIntent);
-								dialog.cancel();
-							}
-						})
-				.setNegativeButton("Cancel",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								// cancel the dialog box
 								dialog.cancel();
 							}
 						});
@@ -363,21 +344,14 @@ public class CallActivity extends FragmentActivity {
 
 			JSONObject jsonRes = getLocationInfo(locs[0]);
 
-			Log.d("butch", String.valueOf(jsonRes));
-
 			try {
 				boolean found = false;
 				JSONArray addresses = ((JSONObject) jsonRes.getJSONArray(
 						"results").get(0)).getJSONArray("address_components");
 				for (int i = 0; i < addresses.length(); i++) {
 					found = false;
-					JSONObject obj = (JSONObject) addresses.get(i);// new
-																	// JSONObject(addresses.get(i));
-
-					Log.d("butch", String.valueOf(obj));
+					JSONObject obj = (JSONObject) addresses.get(i);
 					JSONArray components = obj.getJSONArray("types");
-
-					Log.d("butch", String.valueOf(components));
 
 					for (int j = 0; j < components.length() && !found; j++) {
 						if (components.get(j).toString().equals("locality")) {
@@ -385,8 +359,10 @@ public class CallActivity extends FragmentActivity {
 						}
 					}
 
-					if (found) {
-						cityName = obj.getString("long_name") + " City";// "found!";
+					if (found) { 
+						cityName = obj.getString("long_name");
+						if(!cityName.equals("Manila"))
+							cityName += " City";
 					}
 
 				}
@@ -443,19 +419,6 @@ public class CallActivity extends FragmentActivity {
 						dialog.dismiss();
 
 						tv_city.setText(strName);
-
-						/*
-						 * AlertDialog.Builder builderInner = new
-						 * AlertDialog.Builder( CallActivity.this);
-						 * builderInner.setMessage(strName);
-						 * builderInner.setTitle("Your Selected Item is");
-						 * builderInner.setPositiveButton("Ok", new
-						 * DialogInterface.OnClickListener() {
-						 * 
-						 * @Override public void onClick( DialogInterface
-						 * dialog, int which) { dialog.dismiss(); } });
-						 * builderInner.show();
-						 */
 					}
 				});
 		builderSingle.show();

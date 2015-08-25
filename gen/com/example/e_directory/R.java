@@ -121,8 +121,9 @@ public final class R {
         public static final int get_text=0x7f060004;
         public static final int hello_world=0x7f060001;
         public static final int main_text=0x7f060003;
-        public static final int user_alert_body=0x7f060009;
-        public static final int user_alert_title=0x7f060008;
+        public static final int user_alert_body=0x7f06000a;
+        public static final int user_alert_title=0x7f060009;
+        public static final int user_hint_first=0x7f060008;
         public static final int user_note=0x7f060006;
         public static final int user_note_header=0x7f060005;
         public static final int user_note_please=0x7f060007;

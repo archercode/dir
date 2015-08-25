@@ -74,7 +74,7 @@ public class CityNumberDetailsActivity extends Activity{
 				           }
 				       });
 				builder.setTitle("Hospital Number Status");
-				builder.setMessage("NThe new hospital number has been saved successfully.");
+				builder.setMessage("The new hospital number has been saved successfully.");
 				
 
 				// Create the AlertDialog
@@ -89,11 +89,30 @@ public class CityNumberDetailsActivity extends Activity{
 			@Override
 			public void onClick(View arg0) {
 				
+				AlertDialog.Builder builder = new AlertDialog.Builder(CityNumberDetailsActivity.this);
+				// Add the buttons
+				builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) { 
+								cityNumber.setCustomHosp(null);
+								cityNumber.setHospNum(cityNumber.getHospNum());
+								editHosp.setText(cityNumber.getHospNum());
+				        	   dialog.cancel();
+				           }
+				       });
+				builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) { 
+			        	   dialog.cancel();
+			           }
+			       });
+				builder.setTitle("Hospital Number Status");
+				builder.setMessage("Are you sure you want to reset your Hospital number?");
 				
-				// TODO Auto-generated method stub
-				cityNumber.setCustomHosp(null);
-				cityNumber.setHospNum(cityNumber.getHospNum());
-				editHosp.setText(cityNumber.getHospNum());
+
+				// Create the AlertDialog
+				AlertDialog dialog = builder.create();
+				dialog.show();
+				
+				
 			}
 		});
 		
