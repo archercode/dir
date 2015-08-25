@@ -24,7 +24,10 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -105,7 +108,7 @@ public class CallActivity extends FragmentActivity {
 				startActivity(intent);
 			}
 		});
-		lookForCity();
+		//lookForCity();
 
 		// CALL BUTTON
 		btnCall = (ImageButton) findViewById(R.id.btn_call);
@@ -177,10 +180,15 @@ public class CallActivity extends FragmentActivity {
 	}
 
 	public void lookForCity() {
-		if (displayNetworkStatus()) {
+		// if (displayNetworkStatus()) { 
+		// TONNY
+		if (isNetworkAvailable()) {
 
 			Log.v(TAG, "onClick Network");
 			ll_pb.setVisibility(View.VISIBLE);
+			
+			// dont attempt if not connected to a network
+			
 			locationListener = new MyLocationListener();
 
 			locationMangaer.requestLocationUpdates(
@@ -188,7 +196,10 @@ public class CallActivity extends FragmentActivity {
 					// LocationManager.GPS_PROVIDER,
 					5000, 10, locationListener);
 
-		} else if (displayGpsStatus()) {
+		} 
+		//edited by: TONNY
+		/*else if (displayGpsStatus()) {
+			
 
 			Log.v(TAG, "onClick");
 			ll_pb.setVisibility(View.VISIBLE);
@@ -196,12 +207,21 @@ public class CallActivity extends FragmentActivity {
 			locationMangaer.requestLocationUpdates(
 			// LocationManager.NETWORK_PROVIDER,
 					LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
-		} else {
-			alertbox("Gps Status!!", "Your GPS is: OFF");
+		} */
+		else {
+			//alertbox("Gps Status!!", "Your GPS is: OFF");
 		}
 	}
 
 	/*----Method to Check GPS is enable or disable ----- */
+	private boolean isNetworkAvailable() {
+	    ConnectivityManager connectivityManager 
+	          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+	    return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+	}
+	
+	
 	private Boolean displayGpsStatus() {
 		ContentResolver contentResolver = getBaseContext().getContentResolver();
 		boolean gpsStatus = Settings.Secure.isLocationProviderEnabled(
@@ -214,6 +234,8 @@ public class CallActivity extends FragmentActivity {
 		}
 	}
 
+	
+	
 	private Boolean displayNetworkStatus() {
 		ContentResolver contentResolver = getBaseContext().getContentResolver();
 		boolean networkStatus = Settings.Secure.isLocationProviderEnabled(
@@ -233,13 +255,18 @@ public class CallActivity extends FragmentActivity {
 				.setCancelable(false)
 				.setTitle("E- Directory")
 				.setPositiveButton("Gps On",
+						
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
 								// finish the current activity
 								// AlertBoxAdvance.this.finish();
+								/*
 								Intent myIntent = new Intent(
 										Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 								startActivity(myIntent);
+								*/
+								WifiManager wifiManager = (WifiManager)getBaseContext().getSystemService(Context.WIFI_SERVICE);
+								wifiManager.setWifiEnabled(true);
 								dialog.cancel();
 							}
 						})
