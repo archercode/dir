@@ -2,6 +2,8 @@ package com.example.e_directory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Locale;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -9,7 +11,6 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,9 +19,12 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -33,7 +37,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class CallActivity extends FragmentActivity {
 
@@ -104,7 +107,6 @@ public class CallActivity extends FragmentActivity {
 				// CityList
 				// get Text from list List
 				String cityName = tv_city.getText().toString();
-
 				String numberToCall = null;
 				arrayAdapter = CityNumberList.getInstance().getNumbersOfCity(
 						cityName);
@@ -117,7 +119,7 @@ public class CallActivity extends FragmentActivity {
 				} else if (btnHospital.isSelected()) {
 					Log.d("isSelected", "Hospital");
 					
-					String ifNumberNull = SharedPrefManager.getInstance(getBaseContext()).edittedHospitalNumber(arrayAdapter.getCity());
+					String ifNumberNull = SharedPrefManager.getInstance(CallActivity.this.getBaseContext()).edittedHospitalNumber(arrayAdapter.getCity());
 					numberToCall = (ifNumberNull == null) ? arrayAdapter.getHospNum(): ifNumberNull;
 					
 //					numberToCall = arrayAdapter.getHospNum();
@@ -125,9 +127,10 @@ public class CallActivity extends FragmentActivity {
 					numberToCall = null;
 				}
 				Log.d("number", numberToCall);
-				//Intent intent = new Intent(Intent.ACTION_CALL);
-				//intent.setData(Uri.parse("tel:" + numberToCall));
-				//startActivity(intent);
+				//Intent intent = new Intent(Intent.ACTION_DIAL);
+				Intent intent = new Intent(Intent.ACTION_CALL);
+				intent.setData(Uri.parse("tel:" + numberToCall));
+				startActivity(intent);
 			}
 		});
 
@@ -298,12 +301,31 @@ public class CallActivity extends FragmentActivity {
 			longitude = String.valueOf(locs[0].getLongitude());
 			latitude = String.valueOf(locs[0].getLatitude());
 
-			// cityName = latitude;
-			// cityName = String.valueOf(getLocationInfo(locs[0]));
+			Geocoder gcd = new Geocoder(CallActivity.this.getApplicationContext(), Locale.getDefault());
+			List<Address> addresses;
+			try {
+				addresses = gcd.getFromLocation(locs[0].getLatitude(), locs[0].getLongitude(), 1);
 
-			// TODO: parse JSON to show
-
-			JSONObject jsonRes = getLocationInfo(locs[0]);
+				if (addresses.size() > 0) {
+				 
+					if(addresses.get(0).getSubAdminArea() != null){
+						cityName = addresses.get(0).getSubAdminArea();
+					}else if (addresses.get(0).getSubLocality() != null){
+						cityName = addresses.get(0).getSubLocality();
+					}else if (addresses.get(0).getAdminArea() != null){
+						cityName = addresses.get(0).getAdminArea();
+					}else{
+						cityName = addresses.get(0).getLocality();
+					}
+				}
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			/*JSONObject jsonRes = getLocationInfo(locs[0]);
 
 			Log.d("butch", String.valueOf(jsonRes));
 
@@ -339,15 +361,16 @@ public class CallActivity extends FragmentActivity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+*/
 			return null;
 		}
 
 		@Override
 		protected void onPostExecute(Void result) {
-			// TODO Auto-generated method stub
-			String s = longitude + "\n" + latitude
-					+ "\n\nMy Currrent City is: " + cityName;
+			
+			if(!cityName.equals("Manila"))
+				cityName += " City";// "found!";
+			
 			tv_city.setText(cityName);
 
 			if (!cityName.equals("")) {
