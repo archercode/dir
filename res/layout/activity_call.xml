@@ -81,7 +81,7 @@
             android:layout_gravity="center"
             android:textStyle="bold"
             android:padding="3dp"
-            android:text="Pasay City"
+            android:text="Manila"
             android:textAlignment="center"
             android:textColor="@color/bg_black"
             android:textAppearance="?android:attr/textAppearanceMedium" />
