@@ -249,7 +249,7 @@ public class CallActivity extends FragmentActivity {
 		} else {
 			
 			
-			//showSettingsAlert("NETWORK");
+			//showSettingsAlert("Access Fine Location");
 			
 			return false;
 		}
