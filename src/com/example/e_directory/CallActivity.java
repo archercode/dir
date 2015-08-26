@@ -249,7 +249,7 @@ public class CallActivity extends FragmentActivity {
 		} else {
 			
 			
-			//showSettingsAlert("Access Fine Location");
+//			showSettingsAlert("Access Fine Location Android");
 			
 			return false;
 		}
@@ -395,27 +395,34 @@ public class CallActivity extends FragmentActivity {
 
 		@Override
 		protected Void doInBackground(Location... locs) {
-			// TODO Auto-generated method stub
+			// TODO Auto-generated method stub   
 
-			longitude = String.valueOf(locs[0].getLongitude());
-			latitude = String.valueOf(locs[0].getLatitude());
+			double lat = 14.481467f; //locs[0].getLatitude());
+			double lon = 121.008370f; //locs[0].getLongitude());
+			
+			longitude = String.valueOf(lon); 
+			latitude = String.valueOf(lat);
+			
 
 			Geocoder gcd = new Geocoder(CallActivity.this.getApplicationContext(), Locale.getDefault());
 			List<Address> addresses;
 			try {
-				addresses = gcd.getFromLocation(locs[0].getLatitude(), locs[0].getLongitude(), 1);
+				addresses = gcd.getFromLocation(lat, lon, 1);
 
 				if (addresses.size() > 0) {
-				 
-					if(addresses.get(0).getSubAdminArea() != null){
+
+					Cities currCity = Cities.MANILA;
+					
+					if(addresses.get(0).getSubAdminArea() != null && currCity.getCity(addresses.get(0).getSubAdminArea()) != Cities.NONE ){
 						cityName = addresses.get(0).getSubAdminArea();
-					}else if (addresses.get(0).getSubLocality() != null){
+					}else if (addresses.get(0).getSubLocality() != null && currCity.getCity(addresses.get(0).getSubLocality()) != Cities.NONE ){
 						cityName = addresses.get(0).getSubLocality();
-					}else if (addresses.get(0).getAdminArea() != null){
+					}else if (addresses.get(0).getAdminArea() != null && currCity.getCity(addresses.get(0).getAdminArea()) != Cities.NONE ){
 						cityName = addresses.get(0).getAdminArea();
 					}else{
 						cityName = addresses.get(0).getLocality();
 					}
+					
 				}
 				
 			} catch (IOException e) {
@@ -540,7 +547,7 @@ public class CallActivity extends FragmentActivity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		lookForCity();
+		//lookForCity();
 	}
 
 }
