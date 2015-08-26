@@ -14,6 +14,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -108,7 +110,7 @@ public class CallActivity extends FragmentActivity {
 				startActivity(intent);
 			}
 		});
-		//lookForCity();
+		lookForCity();
 
 		// CALL BUTTON
 		btnCall = (ImageButton) findViewById(R.id.btn_call);
@@ -180,9 +182,10 @@ public class CallActivity extends FragmentActivity {
 	}
 
 	public void lookForCity() {
-		// if (displayNetworkStatus()) { 
 		// TONNY
-		if (isNetworkAvailable()) {
+		
+		// if (displayNetworkStatus()) {
+		if (isNetworkAvailable() && displayNetworkStatus()) {
 
 			Log.v(TAG, "onClick Network");
 			ll_pb.setVisibility(View.VISIBLE);
@@ -190,6 +193,8 @@ public class CallActivity extends FragmentActivity {
 			// dont attempt if not connected to a network
 			
 			locationListener = new MyLocationListener();
+			
+			
 
 			locationMangaer.requestLocationUpdates(
 					LocationManager.NETWORK_PROVIDER,
@@ -234,8 +239,6 @@ public class CallActivity extends FragmentActivity {
 		}
 	}
 
-	
-	
 	private Boolean displayNetworkStatus() {
 		ContentResolver contentResolver = getBaseContext().getContentResolver();
 		boolean networkStatus = Settings.Secure.isLocationProviderEnabled(
@@ -244,6 +247,10 @@ public class CallActivity extends FragmentActivity {
 			return true;
 
 		} else {
+			
+			
+			//showSettingsAlert("NETWORK");
+			
 			return false;
 		}
 	}
@@ -255,7 +262,6 @@ public class CallActivity extends FragmentActivity {
 				.setCancelable(false)
 				.setTitle("E- Directory")
 				.setPositiveButton("Gps On",
-						
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
 								// finish the current activity
@@ -279,6 +285,34 @@ public class CallActivity extends FragmentActivity {
 						});
 		AlertDialog alert = builder.create();
 		alert.show();
+	}
+	
+	public void showSettingsAlert(String provider) {
+		AlertDialog.Builder alertDialog = new AlertDialog.Builder(
+				CallActivity.this);
+
+		alertDialog.setTitle(provider + " SETTINGS");
+
+		alertDialog
+				.setMessage(provider + " is not enabled! Want to go to settings menu?");
+
+		alertDialog.setPositiveButton("Settings",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						Intent intent = new Intent(
+								Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+						CallActivity.this.startActivity(intent);
+					}
+				});
+
+		alertDialog.setNegativeButton("Cancel",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+				});
+
+		alertDialog.show();
 	}
 
 	protected void showAboutDialog() {
@@ -478,10 +512,6 @@ public class CallActivity extends FragmentActivity {
 		@Override
 		public void onLocationChanged(Location loc) {
 
-//			Toast.makeText(
-//					getBaseContext(),
-//					"Location changed : Lat: " + loc.getLatitude() + " Lng: "
-//							+ loc.getLongitude(), Toast.LENGTH_SHORT).show();
 			String longitude = "Longitude: " + loc.getLongitude();
 			Log.v(TAG, longitude);
 			String latitude = "Latitude: " + loc.getLatitude();
@@ -504,6 +534,13 @@ public class CallActivity extends FragmentActivity {
 		public void onStatusChanged(String provider, int status, Bundle extras) {
 			// TODO Auto-generated method stub
 		}
+	}
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		lookForCity();
 	}
 
 }
