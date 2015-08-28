@@ -417,8 +417,10 @@ public class CallActivity extends FragmentActivity {
 		protected Void doInBackground(Location... locs) {
 			// TODO Auto-generated method stub   
 
-			double lat = 14.481467f; //locs[0].getLatitude());
-			double lon = 121.008370f; //locs[0].getLongitude());
+			double lat = //14.481467f; 
+					locs[0].getLatitude();
+			double lon = //121.008370f; 
+					locs[0].getLongitude();
 			
 			longitude = String.valueOf(lon); 
 			latitude = String.valueOf(lat);
