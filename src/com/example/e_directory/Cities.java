@@ -25,7 +25,7 @@ public enum Cities {
 		strCity = s;	
 	}
 	
-	public String getString(){
+	public String getStringLabel(){
 		return strCity;
 	}
 	

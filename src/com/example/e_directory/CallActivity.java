@@ -59,7 +59,7 @@ public class CallActivity extends FragmentActivity {
 	private TextView tv_city;
 	private TextView tv_dept;
 
-	CityNumber arrayAdapter;
+	CityNumber currCityNumberObj;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -121,16 +121,15 @@ public class CallActivity extends FragmentActivity {
 				// get Text from list List
 				String cityName = tv_city.getText().toString();
 				String numberToCall = null;
-				arrayAdapter = CityNumberList.getInstance().getNumbersOfCity(
-						cityName);
+				//currCityNumberObj = CityNumberList.getInstance().getNumbersOfCity(cityName);
 				if (btnPolice.isSelected()) { 
-					numberToCall = arrayAdapter.getPoliceNum();
+					numberToCall = currCityNumberObj.getPoliceNum();
 				} else if (btnFire.isSelected()) { 
-					numberToCall = arrayAdapter.getFireNum();
+					numberToCall = currCityNumberObj.getFireNum();
 				} else if (btnHospital.isSelected()) { 
 					
-					String ifNumberNull = SharedPrefManager.getInstance(CallActivity.this.getBaseContext()).edittedHospitalNumber(arrayAdapter.getCity());
-					numberToCall = (ifNumberNull == null) ? arrayAdapter.getHospNum(): ifNumberNull;
+					String ifNumberNull = SharedPrefManager.getInstance(CallActivity.this.getBaseContext()).edittedHospitalNumber(currCityNumberObj.getCity());
+					numberToCall = (ifNumberNull == null) ? currCityNumberObj.getHospNum(): ifNumberNull;
 					
 //					numberToCall = arrayAdapter.getHospNum();
 				} else {
@@ -256,6 +255,27 @@ public class CallActivity extends FragmentActivity {
 	}
 
 	/*----------Method to create an AlertBox ------------- */
+	protected void showNoCityAlert() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage("Could not locate your city. Please check your network connection.")
+				.setCancelable(false)
+				.setTitle("E- Directory")
+				.setPositiveButton("Retry",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								lookForCity();
+							}
+						})
+				.setNegativeButton("Cancel",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// cancel the dialog box
+								dialog.cancel();
+							}
+						});
+		AlertDialog alert = builder.create();
+		alert.show();
+	}
 	protected void alertbox(String title, String mymessage) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setMessage("Your Device's GPS is Disable")
@@ -415,13 +435,27 @@ public class CallActivity extends FragmentActivity {
 					
 					if(addresses.get(0).getSubAdminArea() != null && currCity.getCity(addresses.get(0).getSubAdminArea()) != Cities.NONE ){
 						cityName = addresses.get(0).getSubAdminArea();
+						//currCity = currCity.getCity(addresses.get(0).getSubAdminArea());
+						Log.d("butch","subadminarea");
 					}else if (addresses.get(0).getSubLocality() != null && currCity.getCity(addresses.get(0).getSubLocality()) != Cities.NONE ){
+						//currCity = currCity.getCity( addresses.get(0).getSubLocality());
 						cityName = addresses.get(0).getSubLocality();
+						Log.d("butch","sublocality");
 					}else if (addresses.get(0).getAdminArea() != null && currCity.getCity(addresses.get(0).getAdminArea()) != Cities.NONE ){
+						//currCity = currCity.getCity(addresses.get(0).getAdminArea());
 						cityName = addresses.get(0).getAdminArea();
+						Log.d("butch","adminare");
 					}else{
+						//currCity = currCity.getCity(addresses.get(0).getLocality());
 						cityName = addresses.get(0).getLocality();
+						Log.d("butch","locality");
 					}
+					
+					cityName = cityName.replace("ñ","n");
+					
+					currCityNumberObj = CityNumberList.getInstance().getNumbersOfCity(cityName);
+					
+					cityName = currCityNumberObj.getCity();
 					
 				}
 				
@@ -467,15 +501,17 @@ public class CallActivity extends FragmentActivity {
 		@Override
 		protected void onPostExecute(Void result) {
 			
-			if(!cityName.equals("Manila"))
-				cityName += " City";// "found!";
-			
-			tv_city.setText(cityName);
+			if(cityName.trim().isEmpty()){
+				showNoCityAlert();
+			}else {
+				
+				tv_city.setText(cityName);
+	
+			}			
 
-			if (!cityName.equals("")) {
-				ll_pb.setVisibility(View.GONE);
-				locationMangaer.removeUpdates(locationListener);
-			}
+			ll_pb.setVisibility(View.GONE);
+			locationMangaer.removeUpdates(locationListener);
+			
 			super.onPostExecute(result);
 		}
 
