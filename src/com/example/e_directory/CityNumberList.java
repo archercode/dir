@@ -23,14 +23,25 @@ public class CityNumberList {
 		ArrayList<String> cities = new ArrayList<String>();
 		for (Iterator<String> iterator = numbers.keySet().iterator(); iterator
 				.hasNext();) {
+			//cities.add(iterator.next());
+			cities.add(numbers.get(iterator.next()).getCity());
+		}
+		return cities;
+	}
+	
+	public ArrayList<String> getKeyListOfCities(){
+		ArrayList<String> cities = new ArrayList<String>();
+		for (Iterator<String> iterator = numbers.keySet().iterator(); iterator
+				.hasNext();) {
 			cities.add(iterator.next());
+			//cities.add(numbers.get(iterator.next()).getCity());
 		}
 		return cities;
 	}
 	
 
 	public CityNumber getNumbersOfCity(int cityNum){
-		return numbers.get(getListOfCities().get(cityNum));
+		return numbers.get(getKeyListOfCities().get(cityNum));
 	}
 	
 	

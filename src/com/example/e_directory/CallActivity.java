@@ -193,8 +193,6 @@ public class CallActivity extends FragmentActivity {
 			
 			locationListener = new MyLocationListener();
 			
-			
-
 			locationMangaer.requestLocationUpdates(
 					LocationManager.NETWORK_PROVIDER,
 					// LocationManager.GPS_PROVIDER,
@@ -213,8 +211,30 @@ public class CallActivity extends FragmentActivity {
 					LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
 		} */
 		else {
-			//alertbox("Gps Status!!", "Your GPS is: OFF");
+			
+			/*float apiVer = getAPIVerison();
+			
+			if(apiVer >= 4.0f)
+				alertbox("E-Directory", "Your network is off. Please turn on the Location services.", "Turn Location On", "Cancel");
+			else	*/
+			
+			
+			alertbox("E-Directory", "Your network is off. Please turn on the Location and Network services.", "OK", "Cancel");
+			
 		}
+	}
+	
+	public static float getAPIVerison() {
+	    float f=1f;
+	    try {
+	        StringBuilder strBuild = new StringBuilder();
+	        strBuild.append(android.os.Build.VERSION.RELEASE.substring(0, 2));
+	        f= Float.valueOf(strBuild.toString());
+	    } catch (NumberFormatException e) {
+	        Log.e("myApp", "error retriving api version" + e.getMessage());
+	    }
+
+	    return f;
 	}
 
 	/*----Method to Check GPS is enable or disable ----- */
@@ -276,27 +296,28 @@ public class CallActivity extends FragmentActivity {
 		AlertDialog alert = builder.create();
 		alert.show();
 	}
-	protected void alertbox(String title, String mymessage) {
+	protected void alertbox(String title, String mymessage, String okButton, String cancelButton) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage("Your Device's GPS is Disable")
+		builder.setMessage(mymessage)
 				.setCancelable(false)
-				.setTitle("E- Directory")
-				.setPositiveButton("Gps On",
+				.setTitle(title)
+				.setPositiveButton(okButton,
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
 								// finish the current activity
 								// AlertBoxAdvance.this.finish();
-								/*
+
+								WifiManager wifiManager = (WifiManager)getBaseContext().getSystemService(Context.WIFI_SERVICE);
+								wifiManager.setWifiEnabled(true);
+								
 								Intent myIntent = new Intent(
 										Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 								startActivity(myIntent);
-								*/
-								WifiManager wifiManager = (WifiManager)getBaseContext().getSystemService(Context.WIFI_SERVICE);
-								wifiManager.setWifiEnabled(true);
 								dialog.cancel();
+								
 							}
 						})
-				.setNegativeButton("Cancel",
+				.setNegativeButton(cancelButton,
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
 								// cancel the dialog box
@@ -417,9 +438,12 @@ public class CallActivity extends FragmentActivity {
 		protected Void doInBackground(Location... locs) {
 			// TODO Auto-generated method stub   
 
-			double lat = //14.481467f; 
+			double lat = //14.4321175f;
+					//14.481467f; 
 					locs[0].getLatitude();
-			double lon = //121.008370f; 
+			double lon = 
+					//120.9913723f;
+					//121.008370f; 
 					locs[0].getLongitude();
 			
 			longitude = String.valueOf(lon); 
@@ -453,13 +477,14 @@ public class CallActivity extends FragmentActivity {
 						Log.d("butch","locality");
 					}
 					
-					cityName = cityName.replace("ñ","n");
-					
+				
+				    Cities currCities = Cities.NONE.getCity(cityName.replace("ñ","n"));
+					cityName = currCities.getStringLabel();
 					currCityNumberObj = CityNumberList.getInstance().getNumbersOfCity(cityName);
-					
 					cityName = currCityNumberObj.getCity();
 					
 				}
+				
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -546,6 +571,11 @@ public class CallActivity extends FragmentActivity {
 						String strName = arrayAdapter.getItem(which);
 						dialog.dismiss();
 
+						Cities currCities = Cities.NONE.getCity(strName.replace("ñ","n"));
+						strName = currCities.getStringLabel();
+						currCityNumberObj = CityNumberList.getInstance().getNumbersOfCity(strName);
+						strName = currCityNumberObj.getCity();
+						
 						tv_city.setText(strName);
 					}
 				});

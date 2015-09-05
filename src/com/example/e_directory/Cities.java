@@ -2,22 +2,22 @@ package com.example.e_directory;
 
 public enum Cities {
 	MANILA("Manila"),
-	QUEZON("Quezon City"), 
-	CALOOCAN("Caloocan City"),
-	LAS_PINAS("Las Piñas City"), 
-	MAKATI("Makati City"), 
-	MALABON("Malabon City"),
-	MANDALUYONG("Mandaluyong City"), 
-	MARIKINA("Marikina City"),
-	MUNTINLUPA("Muntinlupa City"), 
-	NAVOTAS("Navotas City"), 
-	PARANAQUE("Parañaque City"), 
-	PASAY("Pasay City"),
-	PASIG("Pasig City"), 
-	PATEROS("Pateros City"), 
-	SAN_JUAN("San Juan City"), 
-	TAGUIG("Taguig City"), 
-	VALENZUELA("Valenzuela City"), 
+	QUEZON("Quezon"), 
+	CALOOCAN("Caloocan"),
+	LAS_PINAS("Las Pinas"), 
+	MAKATI("Makati"), 
+	MALABON("Malabon"),
+	MANDALUYONG("Mandaluyong"), 
+	MARIKINA("Marikina"),
+	MUNTINLUPA("Muntinlupa"), 
+	NAVOTAS("Navotas"), 
+	PARANAQUE("Paranaque"), 
+	PASAY("Pasay"),
+	PASIG("Pasig"), 
+	PATEROS("Pateros"), 
+	SAN_JUAN("San Juan"), 
+	TAGUIG("Taguig"), 
+	VALENZUELA("Valenzuela"), 
 	NONE("none");
 	
 	private String strCity;
@@ -35,34 +35,53 @@ public enum Cities {
 			case "manila": 
 				return Cities.MANILA;
 			case "quezon":
+			case "quezon city":
 				return Cities.QUEZON;
 			case "caloocan":
+			case "caloocan city":
 				return Cities.CALOOCAN;
 			case "las pinas": 
 			case "las piñas":
+			case "las piñas city":
 				return Cities.LAS_PINAS;
 			case "makati":
+			case "makati city":
 				return Cities.MAKATI;
 			case "malabon":
+			case "malabon city":
 				return Cities.MALABON;
 			case "mandaluyong":
+			case "mandaluyong city":
 				return Cities.MANDALUYONG;
 			case "marikina":
+			case "marikina city":
 				return Cities.MARIKINA;
 			case "muntinlupa":
+			case "muntinlupa city":
 				return Cities.MUNTINLUPA;
 			case "navotas":
+			case "navotas city":
 				return Cities.NAVOTAS;
 			case "paranaque":
+			case "paranaque city":
 			case "parañaque":
+			case "parañaque city":
 				return Cities.PARANAQUE;
 			case "pasay":
+			case "pasay city":
 				return Cities.PASAY;
+			case "san juan ":
+			case "san juan city":
+				return Cities.SAN_JUAN;
 			case "pasig":
+			case "pasig city":
 				return Cities.PASIG;
-			case "pateros": return Cities.PATEROS;
-			case "taguig": return Cities.TAGUIG;
-			case "valenzuela": return Cities.VALENZUELA;
+			case "pateros": 
+			case "pateros city": return Cities.PATEROS;
+			case "taguig": 
+			case "taguig city": return Cities.TAGUIG;
+			case "valenzuela": 
+			case "valenzuela city": return Cities.VALENZUELA;
 			default: return Cities.NONE;
 		}
 		

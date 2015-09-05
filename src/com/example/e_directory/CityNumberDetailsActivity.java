@@ -27,6 +27,7 @@ public class CityNumberDetailsActivity extends Activity{
 		setContentView(R.layout.activity_numberdetails);
 		
 		cityNum = this.getIntent().getIntExtra("city", -1);
+		
 		cityNumber = CityNumberList.getInstance().getNumbersOfCity(cityNum);
 		
 		
