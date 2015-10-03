@@ -1,0 +1,6 @@
+/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/classes/debug
+/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-ecc7265247c330c39014f591d19cf6318c8c65a5.jar
+/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-0a2d565eef1d55d12c116a0a6676a8d8595e6375.jar
+/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/classes-265e63ffb12bc02a08ab312c520ece8f9c9b60fa.jar
+/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/classes-0f28a6167b4b6c5e02580713a65433009d214964.jar
+/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/PdfViewer-4c06a228355ca022fe82ea7b2320e85822964cf9.jar

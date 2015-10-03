@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/header_terms"
+        android:background="@color/text_white" >
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_weight="4"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tv_cityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Terms &amp; Conditions"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/bg_red"
+                android:textSize="16dp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Sign up"
+            android:textSize="12dp"
+            android:visibility="visible" />
+    </LinearLayout>
+    <!--
+         <WebView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/web_view_pdf"
+        />
+    -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+         android:layout_below="@id/header_terms"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/tv_terms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:text="hello" />
+    </ScrollView>
+
+</RelativeLayout><!-- From: file:/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/src/main/res/layout/activity_terms.xml -->

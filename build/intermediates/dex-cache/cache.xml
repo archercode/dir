@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/tonnyquintos/Downloads/adt-bundle-mac-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
+        <dex dex="/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-ecc7265247c330c39014f591d19cf6318c8c65a5.jar" />
+    </item>
+    <item
+        jar="/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/libs/PdfViewer.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a53b4c813e4237286bd10f0c334c46e894970666">
+        <dex dex="/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/PdfViewer-4c06a228355ca022fe82ea7b2320e85822964cf9.jar" />
+    </item>
+    <item
+        jar="/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/classes-0f28a6167b4b6c5e02580713a65433009d214964.jar" />
+    </item>
+    <item
+        jar="/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-0a2d565eef1d55d12c116a0a6676a8d8595e6375.jar" />
+    </item>
+    <item
+        jar="/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/classes-265e63ffb12bc02a08ab312c520ece8f9c9b60fa.jar" />
+    </item>
+
+</items>
