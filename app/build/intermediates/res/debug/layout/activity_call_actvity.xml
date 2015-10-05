@@ -2,4 +2,4 @@
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/pager"
     android:layout_width="match_parent" android:layout_height="match_parent"
     tools:context="com.example.e_directory.MainActivity" />
-<!-- From: file:/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/src/main/res/layout/activity_call_actvity.xml -->
+<!-- From: file:/Users/francescabarcelona/Documents/git/dir/app/src/main/res/layout/activity_call_actvity.xml -->

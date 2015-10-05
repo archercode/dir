@@ -39,6 +39,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -46,22 +47,23 @@ public class CallActivity extends FragmentActivity {
 
 	private LocationManager locationMangaer = null;
 	private LocationListener locationListener = null;
-	private ImageButton btnRefresh, btnSettings, btnCall, btnInfo;
+	private ImageButton btnRefresh, btnSettings;
 	private Button btnPolice,
-			btnHospital, btnFire;
+			btnHospital, btnFire, btnMore;
 	private Boolean flag = false;
 
 	private final String TAG = "Edir";
 
-	private LinearLayout ll_pb, ll_city;
-	private TextView tv_city;
-	private TextView tv_dept;
+	private LinearLayout ll_pb, llMain, llSpecial;
 
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
 
-
 	CityNumber currCityNumberObj;
+
+
+    ArrayList<CallFragment> listeners;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +71,18 @@ public class CallActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_call);
 
+
+        listeners = new ArrayList<CallFragment>();
+
 		btnPolice = (Button) findViewById(R.id.btn_police);
 		btnHospital = (Button) findViewById(R.id.btn_hospital);
 		btnFire = (Button) findViewById(R.id.btn_fire);
+        btnMore = (Button) findViewById(R.id.btn_more);
 
 
         ll_pb = (LinearLayout) findViewById(R.id.layloadingH);
+        llMain = (LinearLayout) findViewById(R.id.linearLayout);
+        llSpecial = (LinearLayout) findViewById(R.id.header_special);
         locationMangaer = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         lookForCity();
@@ -104,7 +112,59 @@ public class CallActivity extends FragmentActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch(position){
+                    case 0:
+                        btnHospital.setSelected(false);
+                        btnPolice.setSelected(true);
+                        btnFire.setSelected(false);
+                        btnMore.setSelected(false);
+
+                        llMain.setVisibility(View.VISIBLE);
+                        break;
+                    case 1:
+                        btnHospital.setSelected(true);
+                        btnPolice.setSelected(false);
+                        btnFire.setSelected(false);
+                        btnMore.setSelected(false);
+
+                        llMain.setVisibility(View.VISIBLE);
+                        break;
+                    case 2:
+                        btnHospital.setSelected(false);
+                        btnPolice.setSelected(false);
+                        btnFire.setSelected(true);
+                        btnMore.setSelected(false);
+
+                        llMain.setVisibility(View.VISIBLE);
+                        break;
+                    case 3:
+
+                        btnHospital.setSelected(false);
+                        btnPolice.setSelected(false);
+                        btnFire.setSelected(false);
+                        btnMore.setSelected(true);
+
+                        llMain.setVisibility(View.GONE);
+                        break;
+
+
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        // mViewPager.setOffscreenPageLimit(4);
 
 
         // POLICE TAB
@@ -115,9 +175,7 @@ public class CallActivity extends FragmentActivity {
         btnPolice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                btnHospital.setSelected(false);
-                btnPolice.setSelected(true);
-                btnFire.setSelected(false);
+
                 mViewPager.setCurrentItem(0);
 
 
@@ -129,9 +187,7 @@ public class CallActivity extends FragmentActivity {
         btnHospital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                btnHospital.setSelected(true);
-                btnPolice.setSelected(false);
-                btnFire.setSelected(false);
+
                 mViewPager.setCurrentItem(1);
             }
         });
@@ -141,13 +197,18 @@ public class CallActivity extends FragmentActivity {
         btnFire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                btnHospital.setSelected(false);
-                btnPolice.setSelected(false);
-                btnFire.setSelected(true);
+
                 mViewPager.setCurrentItem(2);
             }
         });
+        btnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                //llSpecial.setVisibility(View.GONE);
+                mViewPager.setCurrentItem(3);
 
+            }
+        });
 
     }
 
@@ -232,7 +293,7 @@ public class CallActivity extends FragmentActivity {
 	private Boolean displayNetworkStatus() {
 		ContentResolver contentResolver = getBaseContext().getContentResolver();
 		boolean networkStatus = Settings.Secure.isLocationProviderEnabled(
-				contentResolver, LocationManager.NETWORK_PROVIDER);
+                contentResolver, LocationManager.NETWORK_PROVIDER);
 		if (networkStatus) {
 			return true;
 
@@ -289,12 +350,12 @@ public class CallActivity extends FragmentActivity {
 							}
 						})
 				.setNegativeButton(cancelButton,
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								// cancel the dialog box
-								dialog.cancel();
-							}
-						});
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // cancel the dialog box
+                                dialog.cancel();
+                            }
+                        });
 		AlertDialog alert = builder.create();
 		alert.show();
 	}
@@ -370,7 +431,7 @@ public class CallActivity extends FragmentActivity {
 		return jsonObject;
 	}
 
-	private class LocationTask extends AsyncTask<Location, Void, Void> {
+    private class LocationTask extends AsyncTask<Location, Void, Void> {
 		String cityName = "";
 		String longitude, latitude;
 
@@ -422,6 +483,7 @@ public class CallActivity extends FragmentActivity {
 					cityName = currCities.getStringLabel();
 					currCityNumberObj = CityNumberList.getInstance().getNumbersOfCity(cityName);
 					cityName = currCityNumberObj.getCity();
+
 					
 				}
 				
@@ -470,11 +532,16 @@ public class CallActivity extends FragmentActivity {
 			
 			if(cityName.trim().isEmpty()){
 				showNoCityAlert();
-			}else {
+			}/*else {
 				
 				tv_city.setText(cityName);
 
-			}			
+			}			*/
+
+
+            for(CallFragment listener: listeners){
+                listener.onLocationChanged(cityName, currCityNumberObj);
+            }
 
 			ll_pb.setVisibility(View.GONE);
 			locationMangaer.removeUpdates(locationListener);
@@ -522,7 +589,21 @@ public class CallActivity extends FragmentActivity {
 		//lookForCity();
 	}
 
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+	public interface CurrentLocationListener{
+
+		public void onLocationChanged(String cityName, CityNumber currCityNumber);
+	}
+
+    public void setCity(String cityName, CityNumber currCityNumber){
+
+        for(CallFragment listener: listeners){
+            listener.refresh(cityName, currCityNumber);
+        }
+
+    }
+
+	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -534,13 +615,20 @@ public class CallActivity extends FragmentActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return CallFragment.newInstance(position + 1);
+
+            if(position < 3) {
+                Fragment frag = CallFragment.newInstance(position);
+                listeners.add((CallFragment) frag);
+                return frag;
+            }else{
+                return new MoreFragment();
+            }
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 4;
         }
 
         @Override

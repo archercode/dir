@@ -3,4 +3,4 @@
     <item android:drawable="@drawable/btn_settings_active" android:state_selected="true" />
     <item android:drawable="@drawable/btn_settings_active" android:state_pressed="true" />
     <item android:drawable="@drawable/btn_settings_inactive" />
-</selector><!-- From: file:/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/src/main/res/drawable/btn_settings.xml -->
+</selector><!-- From: file:/Users/francescabarcelona/Documents/git/dir/app/src/main/res/drawable/btn_settings.xml -->

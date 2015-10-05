@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_red">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/header_special"
+        android:background="@color/text_white" >
+
+        <RelativeLayout
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_weight="4"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tv_cityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Special Hotlines"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/bg_red"
+                android:textSize="16dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@id/header_terms"
+        android:layout_height="match_parent"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvHigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Highway Assistance"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/bg_orange"
+                android:textStyle="bold"
+                android:paddingTop="20dp"
+                android:paddingBottom="5dp"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp" >
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Skyway"
+                    android:textAlignment="center"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textSize="18dp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_skyway"
+                    android:layout_weight="1" />
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="NLEX"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textSize="18dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_nlex"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp" >
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="SLEX"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_slex"
+                    android:layout_weight="1" />
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="SCTEX"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textSize="18dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_sctex"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp" >
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="TPLEX"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_tplex"
+                    android:layout_weight="1" />
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="STAR TOLL"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textSize="18dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_startoll"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp" >
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="PEATC"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_peatc"
+                    android:layout_weight="1" />
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="MATES"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textSize="18dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_mates"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvgovt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Government Agencies"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:paddingTop="30dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/bg_orange"
+                android:textStyle="bold"
+                android:textSize="18dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp" >
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="NDRMMC"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_ndrmmc"
+                    android:layout_weight="1" />
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="DSWD"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textSize="18dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_dswd"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PHILIPPINE COAST GUARD"
+                android:background="@drawable/btn_white_border"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/text_white"
+                android:id="@+id/btn_phcoastguard"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp" >
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="PAGASA"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_pagasa"
+                    android:layout_weight="1" />
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="DOTC"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textSize="18dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_dotc"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:layout_marginBottom="50dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="MMDA"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="18dp"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_mmda"
+                    android:layout_weight="1" />
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="NBI"
+                    android:background="@drawable/btn_white_border"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textSize="18dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:id="@+id/btn_nbi"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

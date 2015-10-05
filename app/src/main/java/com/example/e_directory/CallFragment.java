@@ -17,7 +17,7 @@ import android.widget.TextView;
 /**
  * Created by tonnyquintos on 10/3/15.
  */
-public class CallFragment extends Fragment{
+public class CallFragment extends Fragment implements CallActivity.CurrentLocationListener{
 
 
     private ImageButton  btnCall, btnInfo;
@@ -30,10 +30,12 @@ public class CallFragment extends Fragment{
     private TextView tv_dept;
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    static int tabNumber;
-    public static cityName;
+    int tabNumber;
 
+    String cityName = "Manila";
     CityNumber currCityNumberObj;
+
+
 
     /**
      * Returns a new instance of this fragment for the given section
@@ -43,14 +45,17 @@ public class CallFragment extends Fragment{
         CallFragment fragment = new CallFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-        tabNumber = sectionNumber;
         fragment.setArguments(args);
         return fragment;
     }
 
-    public CallFragment() {
-        
-        
+    public CallFragment(){
+    }
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -58,8 +63,7 @@ public class CallFragment extends Fragment{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_call_actvity, container, false);
 
-
-
+        tabNumber = this.getArguments().getInt(ARG_SECTION_NUMBER);
         if(tabNumber < 3) {
             btnInfo = (ImageButton) view.findViewById(R.id.btn_info);
 
@@ -81,7 +85,7 @@ public class CallFragment extends Fragment{
 
             ll_city = (LinearLayout) view.findViewById(R.id.tv_city_header);
             tv_city = (TextView) view.findViewById(R.id.tv_city);
-
+            tv_city.setText(cityName);
             ll_city.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
@@ -173,8 +177,12 @@ public class CallFragment extends Fragment{
                         strName = currCityNumberObj.getCity();
 
                         tv_city.setText(strName);
+
+                        ((CallActivity)CallFragment.this.getActivity()).setCity(strName, currCityNumberObj);
                     }
                 });
+
+
         builderSingle.show();
     }
 
@@ -183,17 +191,17 @@ public class CallFragment extends Fragment{
         LayoutInflater inflater = CallFragment.this.getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_about, null);
         TextView info = (TextView) view.findViewById(R.id.tv_founders);
-        info.setText("Co-founders:"+System.getProperty("line.separator")
-                +"Gerard Navarro"+System.getProperty("line.separator")
-                +"Ronald Paglinawan"+System.getProperty("line.separator")
-                +"Vincent Cheng"+System.getProperty("line.separator")
-                +"Jorge Ejercito"+System.getProperty("line.separator")
-                +"Rodel Tarroza"+System.getProperty("line.separator")
-                +"Ron Villaraza"+System.getProperty("line.separator")+System.getProperty("line.separator")
-                +"contact us at"+System.getProperty("line.separator")
-                +"info@herosupportph.com"+System.getProperty("line.separator")
-                +"Copyright(c) and Trademark(TM) 2015."+System.getProperty("line.separator")
-                +"All rights reserved.");
+        info.setText("Co-founders:" + System.getProperty("line.separator")
+                + "Gerard Navarro" + System.getProperty("line.separator")
+                + "Ronald Paglinawan" + System.getProperty("line.separator")
+                + "Vincent Cheng" + System.getProperty("line.separator")
+                + "Jorge Ejercito" + System.getProperty("line.separator")
+                + "Rodel Tarroza" + System.getProperty("line.separator")
+                + "Ron Villaraza" + System.getProperty("line.separator") + System.getProperty("line.separator")
+                + "contact us at" + System.getProperty("line.separator")
+                + "info@herosupportph.com" + System.getProperty("line.separator")
+                + "Copyright(c) and Trademark(TM) 2015." + System.getProperty("line.separator")
+                + "All rights reserved.");
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(CallFragment.this.getActivity());
@@ -212,4 +220,19 @@ public class CallFragment extends Fragment{
     }
 
 
+    @Override
+    public void onLocationChanged(String strName, CityNumber currCityNumberObj) {
+        cityName = strName;
+        this.currCityNumberObj = currCityNumberObj;
+        refresh(strName, currCityNumberObj);
+    }
+
+
+    public void refresh(String strCity, CityNumber currCityNumberObj){
+        cityName = strCity;
+        this.currCityNumberObj = currCityNumberObj;
+
+        tv_city.setText(strCity);
+        //this.getView().invalidate();
+    }
 }

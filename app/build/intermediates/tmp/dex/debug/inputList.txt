@@ -1,6 +1,6 @@
-/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/classes/debug
-/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-ecc7265247c330c39014f591d19cf6318c8c65a5.jar
-/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-0a2d565eef1d55d12c116a0a6676a8d8595e6375.jar
-/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/classes-265e63ffb12bc02a08ab312c520ece8f9c9b60fa.jar
-/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/classes-0f28a6167b4b6c5e02580713a65433009d214964.jar
-/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/build/intermediates/pre-dexed/debug/PdfViewer-4c06a228355ca022fe82ea7b2320e85822964cf9.jar
+/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/classes/debug
+/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-564a0ed293c3c68ad1bed48da47259f9f7536993.jar
+/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-8f735816deb0344737aa7d140fe330dc4be3ae9d.jar
+/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/pre-dexed/debug/classes-83e39be2930f3923a07e973bec9c306c4aebc07c.jar
+/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/pre-dexed/debug/classes-0c2c7752840948dd6a2705fd16ce3cb4fc08eb52.jar
+/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/pre-dexed/debug/PdfViewer-e926355683c17962a125e56beb20bc2bc7219f3e.jar

@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@color/text_white"
+        android:animateLayoutChanges="true"
         android:id="@+id/linearLayout">
 
         <ImageButton
@@ -56,54 +57,75 @@
         android:layout_alignParentStart="true"
         android:layout_above="@+id/relativeLayout" />
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/bg_black"
-        android:padding="5dp"
+        android:paddingTop="10dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/relativeLayout">
 
-        <Button
-            android:id="@+id/btn_hospital"
-            android:layout_width="32dp"
-            android:layout_height="35dp"
-            android:layout_alignBaseline="@+id/btn_fire"
-            android:layout_alignBottom="@+id/btn_fire" 
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/btn_hosp" />
 
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
         <Button
             android:id="@+id/btn_police"
             android:layout_width="25dp"
             android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="35dp"
             android:background="@drawable/btn_police"
-            android:scaleType="center" />
+            android:scaleType="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn_hospital"
+            android:layout_width="32dp"
+            android:layout_height="35dp"
+            android:background="@drawable/btn_hosp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
         <Button
             android:id="@+id/btn_fire"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/btn_fire" />
+            android:background="@drawable/btn_fire"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
         <Button
             android:id="@+id/btn_more"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/btn_more" />
+            android:background="@drawable/btn_more"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        </RelativeLayout>
 
-    </RelativeLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
 
@@ -123,4 +145,4 @@
             android:layout_height="wrap_content" >
         </ProgressBar>
     </LinearLayout>
-</FrameLayout><!-- From: file:/Users/tonnyquintos/Documents/MPAndroidChart-master/E-Directory/app/src/main/res/layout/activity_call.xml -->
+</FrameLayout><!-- From: file:/Users/francescabarcelona/Documents/git/dir/app/src/main/res/layout/activity_call.xml -->

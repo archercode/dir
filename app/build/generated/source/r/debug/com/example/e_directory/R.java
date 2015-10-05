@@ -695,14 +695,15 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f050005;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f060007;
+        public static final int abc_search_url_text_holo=0x7f060008;
         public static final int abc_search_url_text_normal=0x7f060000;
         public static final int abc_search_url_text_pressed=0x7f060001;
         public static final int abc_search_url_text_selected=0x7f060002;
         public static final int bg_black=0x7f060003;
         public static final int bg_gray=0x7f060004;
-        public static final int bg_red=0x7f060005;
-        public static final int text_white=0x7f060006;
+        public static final int bg_orange=0x7f060005;
+        public static final int bg_red=0x7f060006;
+        public static final int text_white=0x7f060007;
     }
     public static final class dimen {
         public static final int abc_action_bar_default_height=0x7f070000;
@@ -828,20 +829,21 @@ containing a value of this type.
         public static final int btn_settings=0x7f02005f;
         public static final int btn_settings_active=0x7f020060;
         public static final int btn_settings_inactive=0x7f020061;
-        public static final int fire_active=0x7f020062;
-        public static final int fire_inactive=0x7f020063;
-        public static final int hospital_active=0x7f020064;
-        public static final int hospital_inactive=0x7f020065;
-        public static final int ic_arrow_back_black_24dp=0x7f020066;
-        public static final int ic_edire_logo=0x7f020067;
-        public static final int ic_info_outline_black_24dp=0x7f020068;
-        public static final int ic_refresh_black_24dp=0x7f020069;
-        public static final int ic_settings_black_24dp=0x7f02006a;
-        public static final int logo_banner=0x7f02006b;
-        public static final int more_active=0x7f02006c;
-        public static final int more_inactive=0x7f02006d;
-        public static final int police_active=0x7f02006e;
-        public static final int police_inactive=0x7f02006f;
+        public static final int btn_white_border=0x7f020062;
+        public static final int fire_active=0x7f020063;
+        public static final int fire_inactive=0x7f020064;
+        public static final int hospital_active=0x7f020065;
+        public static final int hospital_inactive=0x7f020066;
+        public static final int ic_arrow_back_black_24dp=0x7f020067;
+        public static final int ic_edire_logo=0x7f020068;
+        public static final int ic_info_outline_black_24dp=0x7f020069;
+        public static final int ic_refresh_black_24dp=0x7f02006a;
+        public static final int ic_settings_black_24dp=0x7f02006b;
+        public static final int logo_banner=0x7f02006c;
+        public static final int more_active=0x7f02006d;
+        public static final int more_inactive=0x7f02006e;
+        public static final int police_active=0x7f02006f;
+        public static final int police_inactive=0x7f020070;
     }
     public static final class id {
         public static final int TextView01=0x7f080051;
@@ -856,7 +858,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f080001;
         public static final int action_menu_presenter=0x7f080002;
         public static final int action_mode_close_button=0x7f080024;
-        public static final int action_settings=0x7f08006d;
+        public static final int action_settings=0x7f080080;
         public static final int activity_chooser_view_content=0x7f080025;
         public static final int always=0x7f080013;
         public static final int beginning=0x7f08000f;
@@ -866,16 +868,31 @@ containing a value of this type.
         public static final int btn_back=0x7f080048;
         public static final int btn_call=0x7f08006c;
         public static final int btn_disagree=0x7f08005a;
-        public static final int btn_fire=0x7f080043;
-        public static final int btn_hospital=0x7f080042;
+        public static final int btn_dotc=0x7f08007d;
+        public static final int btn_dswd=0x7f08007a;
+        public static final int btn_fire=0x7f080044;
+        public static final int btn_hospital=0x7f080043;
         public static final int btn_info=0x7f080049;
+        public static final int btn_mates=0x7f080077;
+        public static final int btn_mmda=0x7f08007e;
         public static final int btn_more=0x7f080045;
-        public static final int btn_police=0x7f080044;
+        public static final int btn_nbi=0x7f08007f;
+        public static final int btn_ndrmmc=0x7f080079;
+        public static final int btn_nlex=0x7f080071;
+        public static final int btn_pagasa=0x7f08007c;
+        public static final int btn_peatc=0x7f080076;
+        public static final int btn_phcoastguard=0x7f08007b;
+        public static final int btn_police=0x7f080042;
         public static final int btn_refresh=0x7f08003d;
         public static final int btn_reset=0x7f080057;
         public static final int btn_save=0x7f080050;
+        public static final int btn_sctex=0x7f080073;
         public static final int btn_settings=0x7f08003f;
         public static final int btn_skip=0x7f08005c;
+        public static final int btn_skyway=0x7f080070;
+        public static final int btn_slex=0x7f080072;
+        public static final int btn_startoll=0x7f080075;
+        public static final int btn_tplex=0x7f080074;
         public static final int checkbox=0x7f08002d;
         public static final int collapseActionView=0x7f080014;
         public static final int default_activity_button=0x7f080028;
@@ -895,6 +912,7 @@ containing a value of this type.
         public static final int et_phone=0x7f080060;
         public static final int expand_activities_button=0x7f080026;
         public static final int expanded_menu=0x7f08002c;
+        public static final int header_special=0x7f08006d;
         public static final int header_terms=0x7f080058;
         public static final int home=0x7f080003;
         public static final int homeAsUp=0x7f08000a;
@@ -902,6 +920,7 @@ containing a value of this type.
         public static final int ifRoom=0x7f080015;
         public static final int image=0x7f080027;
         public static final int imageView2=0x7f08003e;
+        public static final int imageView3=0x7f08006e;
         public static final int layButtonH=0x7f08004c;
         public static final int layloadingH=0x7f080046;
         public static final int linearLayout=0x7f08003c;
@@ -937,6 +956,7 @@ containing a value of this type.
         public static final int tabMode=0x7f080008;
         public static final int title=0x7f08002b;
         public static final int top_action_bar=0x7f080020;
+        public static final int tvHigh=0x7f08006f;
         public static final int tv_city=0x7f08006b;
         public static final int tv_cityName=0x7f08004f;
         public static final int tv_city_header=0x7f08006a;
@@ -951,6 +971,7 @@ containing a value of this type.
         public static final int tv_p_num=0x7f080054;
         public static final int tv_please=0x7f080066;
         public static final int tv_terms=0x7f080059;
+        public static final int tvgovt=0x7f080078;
         public static final int up=0x7f080021;
         public static final int useLogo=0x7f08000e;
         public static final int withText=0x7f080017;
@@ -994,7 +1015,8 @@ containing a value of this type.
         public static final int dialog_about=0x7f030020;
         public static final int dialog_listview=0x7f030021;
         public static final int fragment_call_actvity=0x7f030022;
-        public static final int support_simple_spinner_dropdown_item=0x7f030023;
+        public static final int fragment_more=0x7f030023;
+        public static final int support_simple_spinner_dropdown_item=0x7f030024;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
