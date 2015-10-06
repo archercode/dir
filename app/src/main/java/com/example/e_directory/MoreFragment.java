@@ -9,11 +9,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.HashMap;
+
 /**
  * Created by francescabarcelona on 10/5/15.
  */
 public class MoreFragment  extends Fragment implements View.OnClickListener{
 
+
+    HashMap<Integer, String> numbers;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        numbers = new HashMap<Integer, String>();
+        numbers.put(R.id.btn_skyway,"776-7777");
+        numbers.put(R.id.btn_nlex,"479-3000");
+        numbers.put(R.id.btn_slex,"508-7539");
+        numbers.put(R.id.btn_tplex,"16-505");
+        numbers.put(R.id.btn_sctex,"(045) 459-0522");
+        numbers.put(R.id.btn_startoll,"(43)7572277");
+        numbers.put(R.id.btn_peatc,"820-8347");
+        numbers.put(R.id.btn_mates,"(049)5087539");
+        numbers.put(R.id.btn_ndrmmc,"911-1406");
+        numbers.put(R.id.btn_dswd,"931-8101");
+        numbers.put(R.id.btn_phcoastguard,"527-3877");
+        numbers.put(R.id.btn_pagasa,"433-8526");
+        numbers.put(R.id.btn_dotc,"7890");
+        numbers.put(R.id.btn_mmda,"882-4150");
+        numbers.put(R.id.btn_nbi,"523-8231");
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,14 +72,7 @@ public class MoreFragment  extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
 
-        String numberToCall = "";
-
-        switch(view.getId()){
-            case R.id.btn_dotc:
-                break;
-
-        }
-
+        String numberToCall = numbers.get(view.getId());
 
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + numberToCall));

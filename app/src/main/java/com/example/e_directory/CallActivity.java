@@ -120,7 +120,7 @@ public class CallActivity extends FragmentActivity {
 
             @Override
             public void onPageSelected(int position) {
-                switch(position){
+                switch (position) {
                     case 0:
                         btnHospital.setSelected(false);
                         btnPolice.setSelected(true);
@@ -164,7 +164,14 @@ public class CallActivity extends FragmentActivity {
 
             }
         });
-        // mViewPager.setOffscreenPageLimit(4);
+
+
+        mViewPager.setCurrentItem(0);
+        btnHospital.setSelected(false);
+        btnPolice.setSelected(true);
+        btnFire.setSelected(false);
+        btnMore.setSelected(false);
+        mViewPager.setOffscreenPageLimit(4);
 
 
         // POLICE TAB
