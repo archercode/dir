@@ -448,13 +448,13 @@ public class CallActivity extends FragmentActivity {
 
 			double lat = //14.4321175f;
 					//14.481467f;
-					 14.642676;
-					//locs[0].getLatitude();
+					// 14.642676;
+					locs[0].getLatitude();
 			double lon = 
 					//120.9913723f;
 					//121.008370f;
-					121.228273;
-					//locs[0].getLongitude();
+					//121.228273;
+					locs[0].getLongitude();
 
 			longitude = String.valueOf(lon); 
 			latitude = String.valueOf(lat);
