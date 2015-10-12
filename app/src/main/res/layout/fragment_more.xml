@@ -212,6 +212,23 @@
                     android:layout_weight="1" />
             </LinearLayout>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CAVITEX"
+                android:background="@drawable/btn_white_border"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/text_white"
+                android:id="@+id/btn_cavitex"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp" />
+
             <TextView
                 android:id="@+id/tvgovt"
                 android:layout_width="wrap_content"
