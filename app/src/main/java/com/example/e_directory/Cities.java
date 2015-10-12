@@ -82,7 +82,7 @@ public enum Cities {
 			case "taguig city": return Cities.TAGUIG;
 			case "valenzuela": 
 			case "valenzuela city": return Cities.VALENZUELA;
-			default: return Cities.NONE;
+			default: return Cities.MANILA;
 		}
 		
 	}

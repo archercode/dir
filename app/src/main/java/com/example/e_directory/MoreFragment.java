@@ -27,7 +27,7 @@ public class MoreFragment  extends Fragment implements View.OnClickListener{
         numbers.put(R.id.btn_skyway,"+639175398762");
         numbers.put(R.id.btn_nlex,"+639189061401");
         numbers.put(R.id.btn_slex,"+639176877539");
-        //numbers.put(R.id.btn_cavitex,"+639189340713");
+        numbers.put(R.id.btn_cavitex,"+639189340713");
         numbers.put(R.id.btn_tplex,"+639178880715");
         numbers.put(R.id.btn_sctex,"+639209672839");
         numbers.put(R.id.btn_startoll,"+639175304538");
@@ -65,6 +65,8 @@ public class MoreFragment  extends Fragment implements View.OnClickListener{
         btn = (Button) view.findViewById(R.id.btn_peatc);
         btn.setOnClickListener(this);
         btn = (Button) view.findViewById(R.id.btn_mates);
+        btn.setOnClickListener(this);
+        btn = (Button) view.findViewById(R.id.btn_cavitex);
         btn.setOnClickListener(this);
 
         return view;
