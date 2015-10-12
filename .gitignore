@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
-=======
+
 #built application files
 *.apk
 *.ap_
@@ -42,4 +35,3 @@ build/
 
 #NDK
 obj/
->>>>>>> b080f30a5fcffad551b3006f7c1420968d388cfe
