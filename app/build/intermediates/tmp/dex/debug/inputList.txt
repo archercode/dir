@@ -1,6 +1,8 @@
-/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/classes/debug
-/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-564a0ed293c3c68ad1bed48da47259f9f7536993.jar
-/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-8f735816deb0344737aa7d140fe330dc4be3ae9d.jar
-/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/pre-dexed/debug/classes-83e39be2930f3923a07e973bec9c306c4aebc07c.jar
-/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/pre-dexed/debug/classes-0c2c7752840948dd6a2705fd16ce3cb4fc08eb52.jar
-/Users/francescabarcelona/Documents/git/dir/app/build/intermediates/pre-dexed/debug/PdfViewer-e926355683c17962a125e56beb20bc2bc7219f3e.jar
+/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/classes/debug
+/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-ecc7265247c330c39014f591d19cf6318c8c65a5.jar
+/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.1-266ae963197345886e4d3b11a5b8e6bd7a0ea016.jar
+/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-7f09834f8cf0826aae2d483976758c8e59685f61.jar
+/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/classes-b37fa42ebb071f93cc037addfd84bc8499a78b5f.jar
+/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/parse-android-1.10.3-57ff25831ff1a3f21f78b9df497032e08a984702.jar
+/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/classes-09cab50a7459e82e3c81af8cc92c4748f888a018.jar
+/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/PdfViewer-921a25e8f1a94878f0fdaec1fcf6d2eb53f25412.jar

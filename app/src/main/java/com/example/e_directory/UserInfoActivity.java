@@ -5,8 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,7 +12,8 @@ import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.parse.ParseObject;
 
 public class UserInfoActivity extends Activity implements
 		OnFocusChangeListener, OnClickListener {
@@ -188,6 +187,16 @@ public class UserInfoActivity extends Activity implements
 				final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 				if (email.matches(emailPattern) && email.length() > 0) {
+
+					ParseObject user = new ParseObject("UserInformation");
+					user.put("firstName", et_first.getText().toString());
+					user.put("lastName", et_last.getText().toString());
+					user.put("email", et_email.getText().toString());
+					user.put("mobileNumber", et_phone.getText().toString());
+					user.put("birthday", et_bday.getText().toString());
+					user.put("gender", et_gender.getText().toString());
+					user.put("hometown", et_city.getText().toString());
+					user.saveInBackground();
 					save();
 				} else {
 
