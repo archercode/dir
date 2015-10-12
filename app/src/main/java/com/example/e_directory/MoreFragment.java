@@ -69,6 +69,26 @@ public class MoreFragment  extends Fragment implements View.OnClickListener{
         btn = (Button) view.findViewById(R.id.btn_cavitex);
         btn.setOnClickListener(this);
 
+
+
+
+        btn = (Button) view.findViewById(R.id.btn_ndrmmc);
+        btn.setOnClickListener(this);
+        btn = (Button) view.findViewById(R.id.btn_dswd);
+        btn.setOnClickListener(this);
+        btn = (Button) view.findViewById(R.id.btn_phcoastguard);
+        btn.setOnClickListener(this);
+        btn = (Button) view.findViewById(R.id.btn_pagasa);
+        btn.setOnClickListener(this);
+        btn = (Button) view.findViewById(R.id.btn_dotc);
+        btn.setOnClickListener(this);
+        btn = (Button) view.findViewById(R.id.btn_mmda);
+        btn.setOnClickListener(this);
+        btn = (Button) view.findViewById(R.id.btn_nbi);
+        btn.setOnClickListener(this);
+
+
+
         return view;
     }
 
