@@ -448,12 +448,14 @@ public class CallActivity extends FragmentActivity {
 
 			double lat = //14.4321175f;
 					//14.481467f;
-					// 14.642676;
+					 //14.642676; //antipolo
+					//14.471007; //pque mendoza
 					locs[0].getLatitude();
 			double lon = 
 					//120.9913723f;
 					//121.008370f;
-					//121.228273;
+					//121.228273;//antipolo
+					//121.014710; //pque mendoza
 					locs[0].getLongitude();
 
 			longitude = String.valueOf(lon); 
@@ -489,6 +491,9 @@ public class CallActivity extends FragmentActivity {
 					
 				
 				    Cities currCities = Cities.NONE.getCity(cityName.replace("ñ","n"));
+
+					if(currCities == Cities.NONE)
+						currCities = Cities.MANILA;
 					cityName = currCities.getStringLabel();
 					currCityNumberObj = CityNumberList.getInstance().getNumbersOfCity(cityName);
 					cityName = currCityNumberObj.getCity();
