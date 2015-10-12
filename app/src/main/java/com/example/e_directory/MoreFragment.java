@@ -24,21 +24,22 @@ public class MoreFragment  extends Fragment implements View.OnClickListener{
         super.onCreate(savedInstanceState);
 
         numbers = new HashMap<Integer, String>();
-        numbers.put(R.id.btn_skyway,"776-7777");
-        numbers.put(R.id.btn_nlex,"479-3000");
-        numbers.put(R.id.btn_slex,"508-7539");
-        numbers.put(R.id.btn_tplex,"16-505");
-        numbers.put(R.id.btn_sctex,"(045) 459-0522");
-        numbers.put(R.id.btn_startoll,"(43)7572277");
-        numbers.put(R.id.btn_peatc,"820-8347");
-        numbers.put(R.id.btn_mates,"(049)5087539");
-        numbers.put(R.id.btn_ndrmmc,"911-1406");
-        numbers.put(R.id.btn_dswd,"931-8101");
-        numbers.put(R.id.btn_phcoastguard,"527-3877");
-        numbers.put(R.id.btn_pagasa,"433-8526");
-        numbers.put(R.id.btn_dotc,"7890");
-        numbers.put(R.id.btn_mmda,"882-4150");
-        numbers.put(R.id.btn_nbi,"523-8231");
+        numbers.put(R.id.btn_skyway,"+639175398762");
+        numbers.put(R.id.btn_nlex,"+639189061401");
+        numbers.put(R.id.btn_slex,"+639176877539");
+        //numbers.put(R.id.btn_cavitex,"+639189340713");
+        numbers.put(R.id.btn_tplex,"+639178880715");
+        numbers.put(R.id.btn_sctex,"+639209672839");
+        numbers.put(R.id.btn_startoll,"+639175304538");
+        numbers.put(R.id.btn_peatc,"+639189340713");
+        numbers.put(R.id.btn_mates,"+63495087539");
+        numbers.put(R.id.btn_ndrmmc,"+6329115061");
+        numbers.put(R.id.btn_dswd,"+6329318101");
+        numbers.put(R.id.btn_phcoastguard,"+6325278481");
+        numbers.put(R.id.btn_pagasa,"+632434-2696");
+        numbers.put(R.id.btn_dotc,"+6327890");
+        numbers.put(R.id.btn_mmda,"+632136");
+        numbers.put(R.id.btn_nbi,"+6325238231");
 
     }
 
