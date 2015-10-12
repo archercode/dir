@@ -450,12 +450,14 @@ public class CallActivity extends FragmentActivity {
 					//14.481467f;
 					 //14.642676; //antipolo
 					//14.471007; //pque mendoza
+					//14.070423; //batangas
 					locs[0].getLatitude();
 			double lon = 
 					//120.9913723f;
 					//121.008370f;
 					//121.228273;//antipolo
 					//121.014710; //pque mendoza
+					//120.770954; //batangas
 					locs[0].getLongitude();
 
 			longitude = String.valueOf(lon); 
