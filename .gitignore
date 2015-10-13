@@ -35,3 +35,11 @@ build/
 #NDK
 obj/
 *.bin
+
+.idea/libraries/parse_android_1_10_3.xml
+
+.gradle/2.2.1/taskArtifacts/taskArtifacts.bin
+
+*.bin
+
+.gradle/2.2.1/taskArtifacts/taskArtifacts.bin
