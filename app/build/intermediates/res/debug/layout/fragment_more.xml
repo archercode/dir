@@ -227,7 +227,8 @@
                 android:id="@+id/btn_cavitex"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:paddingTop="5dp" />
+                android:paddingTop="5dp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tvgovt"
