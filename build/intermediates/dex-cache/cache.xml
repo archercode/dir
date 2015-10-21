@@ -2,13 +2,6 @@
 <items version="2" >
 
     <item
-        jar="/Users/tonnyquintos/Downloads/adt-bundle-mac-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
-        <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-ecc7265247c330c39014f591d19cf6318c8c65a5.jar" />
-    </item>
-    <item
         jar="/Users/tonnyquintos/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.1/44780c2cf98f6a3cf4e77f1234d644758b329201/bolts-android-1.2.1.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -16,18 +9,25 @@
         <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.1-266ae963197345886e4d3b11a5b8e6bd7a0ea016.jar" />
     </item>
     <item
+        jar="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/classes-88c6ebfd9edc2f17c3a820eee24914726d05aec8.jar" />
+    </item>
+    <item
+        jar="/Users/tonnyquintos/Downloads/adt-bundle-mac-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-7b7f5268a966f860195f70b2aa24cf81430b86cc.jar" />
+    </item>
+    <item
         jar="/Users/tonnyquintos/Documents/Project/dir/app/libs/PdfViewer.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="a53b4c813e4237286bd10f0c334c46e894970666">
         <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/PdfViewer-921a25e8f1a94878f0fdaec1fcf6d2eb53f25412.jar" />
-    </item>
-    <item
-        jar="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
-        <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/classes-09cab50a7459e82e3c81af8cc92c4748f888a018.jar" />
     </item>
     <item
         jar="/Users/tonnyquintos/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.10.3/36366e460af2c0f224bb8f70b64e3302f638b138/parse-android-1.10.3.jar"
@@ -44,11 +44,32 @@
         <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/classes-b37fa42ebb071f93cc037addfd84bc8499a78b5f.jar" />
     </item>
     <item
-        jar="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jar="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/libs/internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
-        <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-7f09834f8cf0826aae2d483976758c8e59685f61.jar" />
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-adcb95a974916b43cd3b6aca843365ada877a584.jar" />
+    </item>
+    <item
+        jar="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/classes-949afd639dcda9daf321c8b7d1be451d548d9ba1.jar" />
+    </item>
+    <item
+        jar="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.1.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="997773777cf3904c11d6764fe3b7668538220e49">
+        <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/classes-29b212ff5ed5cf29786e567ff1ef562fc8fa818b.jar" />
+    </item>
+    <item
+        jar="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="/Users/tonnyquintos/Documents/Project/dir/app/build/intermediates/pre-dexed/debug/classes-f5448b65c818d4696630a4f62cb19a73c0b191b8.jar" />
     </item>
 
 </items>

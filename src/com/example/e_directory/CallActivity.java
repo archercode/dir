@@ -150,7 +150,7 @@ public class CallActivity extends FragmentActivity {
 				btnHospital.setSelected(false);
 				btnPolice.setSelected(true);
 				btnFire.setSelected(false);
-				tv_dept.setText("POLICE STATION");
+				tv_dept.setText("POLICE");
 			}
 		});
 
@@ -174,7 +174,7 @@ public class CallActivity extends FragmentActivity {
 				btnHospital.setSelected(false);
 				btnPolice.setSelected(false);
 				btnFire.setSelected(true);
-				tv_dept.setText("FIRE STATION");
+				tv_dept.setText("FIRE");
 			}
 		});
 

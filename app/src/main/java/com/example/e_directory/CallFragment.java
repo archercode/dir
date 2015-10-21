@@ -14,6 +14,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 /**
  * Created by tonnyquintos on 10/3/15.
  */
@@ -29,8 +32,9 @@ public class CallFragment extends Fragment implements CallActivity.CurrentLocati
     private TextView tv_city;
     private TextView tv_dept;
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    private AdView mAdView;
     int tabNumber;
+
 
     String cityName = "Manila";
     CityNumber currCityNumberObj;
@@ -56,12 +60,29 @@ public class CallFragment extends Fragment implements CallActivity.CurrentLocati
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        currCityNumberObj = CityNumberList.getInstance().getNumbersOfCity(cityName);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_call_actvity, container, false);
+
+        mAdView = (AdView) view.findViewById(R.id.ad_view);
+
+        // Create an ad request. Check your logcat output for the hashed device ID to
+        // get test ads on a physical device. e.g.
+        // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        // Start loading the ad in the background.
+        mAdView.loadAd(adRequest);
+
+
 
         tabNumber = this.getArguments().getInt(ARG_SECTION_NUMBER);
         if(tabNumber < 3) {

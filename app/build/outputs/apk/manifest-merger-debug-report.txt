@@ -1,8 +1,6 @@
 -- Merging decision tree log ---
 manifest
 ADDED from AndroidManifest.xml:2:1
-	xmlns:android
-		ADDED from AndroidManifest.xml:2:11
 	package
 		ADDED from AndroidManifest.xml:3:5
 		INJECTED from AndroidManifest.xml:0:0
@@ -13,11 +11,19 @@ ADDED from AndroidManifest.xml:2:1
 		ADDED from AndroidManifest.xml:4:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
 uses-sdk
 ADDED from AndroidManifest.xml:7:5
 MERGED from com.android.support:appcompat-v7:20.0.0:16:5
-MERGED from com.android.support:support-v4:20.0.0:16:5
-MERGED from com.android.support:support-v4:20.0.0:16:5
+MERGED from com.android.support:support-v4:22.2.0:20:5
+MERGED from com.android.support:support-v4:22.2.0:20:5
+MERGED from com.google.android.gms:play-services-ads:8.1.0:23:5
+MERGED from com.google.android.gms:play-services-basement:8.1.0:18:5
+MERGED from com.android.support:support-v4:22.2.0:20:5
+MERGED from com.google.android.gms:play-services-appindexing:8.1.0:18:5
+MERGED from com.google.android.gms:play-services-basement:8.1.0:18:5
+MERGED from com.android.support:support-v4:22.2.0:20:5
 	android:targetSdkVersion
 		ADDED from AndroidManifest.xml:9:9
 		INJECTED from AndroidManifest.xml:0:0
@@ -32,6 +38,7 @@ ADDED from AndroidManifest.xml:11:5
 		ADDED from AndroidManifest.xml:11:22
 uses-permission#android.permission.INTERNET
 ADDED from AndroidManifest.xml:12:5
+MERGED from com.google.android.gms:play-services-ads:8.1.0:20:5
 	android:name
 		ADDED from AndroidManifest.xml:12:22
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
@@ -48,6 +55,7 @@ ADDED from AndroidManifest.xml:15:5
 		ADDED from AndroidManifest.xml:15:22
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from AndroidManifest.xml:16:5
+MERGED from com.google.android.gms:play-services-ads:8.1.0:21:5
 	android:name
 		ADDED from AndroidManifest.xml:16:22
 android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
@@ -69,8 +77,14 @@ ADDED from AndroidManifest.xml:22:5
 application
 ADDED from AndroidManifest.xml:26:5
 MERGED from com.android.support:appcompat-v7:20.0.0:17:5
-MERGED from com.android.support:support-v4:20.0.0:17:5
-MERGED from com.android.support:support-v4:20.0.0:17:5
+MERGED from com.android.support:support-v4:22.2.0:22:5
+MERGED from com.android.support:support-v4:22.2.0:22:5
+MERGED from com.google.android.gms:play-services-ads:8.1.0:24:5
+MERGED from com.google.android.gms:play-services-basement:8.1.0:20:5
+MERGED from com.android.support:support-v4:22.2.0:22:5
+MERGED from com.google.android.gms:play-services-appindexing:8.1.0:19:5
+MERGED from com.google.android.gms:play-services-basement:8.1.0:20:5
+MERGED from com.android.support:support-v4:22.2.0:22:5
 	android:label
 		ADDED from AndroidManifest.xml:30:9
 	android:allowBackup
@@ -151,3 +165,25 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:70:17
 	android:name
 		ADDED from AndroidManifest.xml:70:27
+activity#com.google.android.gms.ads.AdActivity
+ADDED from AndroidManifest.xml:73:9
+MERGED from com.google.android.gms:play-services-ads:8.1.0:26:9
+	android:configChanges
+		ADDED from AndroidManifest.xml:74:13
+	android:theme
+		ADDED from AndroidManifest.xml:75:13
+	android:name
+		ADDED from AndroidManifest.xml:73:19
+activity#com.google.android.gms.ads.purchase.InAppPurchaseActivity
+ADDED from com.google.android.gms:play-services-ads:8.1.0:30:9
+	android:theme
+		ADDED from com.google.android.gms:play-services-ads:8.1.0:31:13
+	android:name
+		ADDED from com.google.android.gms:play-services-ads:8.1.0:30:19
+meta-data#com.google.android.gms.version
+ADDED from com.google.android.gms:play-services-basement:8.1.0:21:9
+MERGED from com.google.android.gms:play-services-basement:8.1.0:21:9
+	android:value
+		ADDED from com.google.android.gms:play-services-basement:8.1.0:23:13
+	android:name
+		ADDED from com.google.android.gms:play-services-basement:8.1.0:22:13
